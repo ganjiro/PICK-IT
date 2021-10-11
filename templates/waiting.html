@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Waiting... {% endblock %}</h1>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var intervalId = window.setInterval(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/check_gamestart",
+                    data: {},
+                    dataType: 'JSON',
+                    success: function (response) {
+                        console.log(response);
+                        if (response["success"]) {
+                            alert("sogno");
+                            window.location.href = '/next_code';
+
+                        }
+
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+
+                }, 3000);
+
+            });
+        });
+
+
+    </script>
+
+{% endblock %}
