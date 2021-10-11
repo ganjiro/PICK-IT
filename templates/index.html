@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
+
+<div class="col-6">
+    <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
+    <input type="text" class="form-control" id="id-input" style="border-radius: 25px;">
+</div>
+
+<button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#id-bottone").click(function (e) {
+            // alert("ciao");
+            var bool = true;
+            var code = document.getElementById("id-input").value;
+            if (code.length == 0) {
+                document.getElementById("error-code").innerHTML = "*Obbligatorio";
+                bool = false;
+            } else
+                document.getElementById("error-code").innerHTML = "";
+            if (bool) {
+                $.ajax({
+                    type: "POST",
+                    url: "/code",
+                    data: {id: code},
+                    dataType: 'JSON',
+                    success: function (response) {
+                        console.log(response);
+                        if (response["success"]){
+                            alert("sogno");
+                            window.location.href = '/next_code?code='+code;
+
+                        }else
+                            alert("diocaner");
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+
+                });
+            }
+        });
+    });
+
+
+</script>
+
+{% endblock %}

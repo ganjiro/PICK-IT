@@ -1,0 +1,44 @@
+{
+  "name": "Lol Picker",
+  "short_name": "Lol Picker",
+  "description": "Ti pikka i champ",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "/static/assets/img/72.png",
+      "type": "image/png", "sizes": "72x72"
+    },
+    {
+      "src": "/static/assets/img/96.png",
+      "type": "image/png", "sizes": "96x96"
+    },
+    {
+      "src": "/static/assets/img/128.png",
+      "type": "image/png","sizes": "128x128"
+    },
+    {
+      "src": "/static/assets/img/144.png",
+      "type": "image/png", "sizes": "144x144"
+    },
+    {
+      "src": "/static/assets/img/152.png",
+      "type": "image/png", "sizes": "152x152"
+    },
+    {
+      "src": "/static/assets/img/192.png",
+      "type": "image/png", "sizes": "192x192"
+    },
+    {
+      "src": "/static/assets/img/384.png",
+      "type": "image/png", "sizes": "384x384"
+    },
+    {
+      "src": "/static/assets/img/512.png",
+      "type": "image/png", "sizes": "512x512"
+    }
+  ]
+}

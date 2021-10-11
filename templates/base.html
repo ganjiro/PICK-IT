@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <!-- Required meta tags for PWA -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="manifest" href="/static/manifest.json"/>
+    <!-- Required meta tags for Apple PWA -->
+    <link rel="apple-touch-icon" href="/static/assets/img/72.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/96.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/128.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/144.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/152.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/192.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/384.png"/>
+    <link rel="apple-touch-icon" href="/static/assets/img/512.png"/>
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938"/>
+    <meta name="theme-color" content="#db4938"/>
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+
+{% block content %} {% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker
+                .register("/static/assets/js/sw.js")
+                .then(res => console.log("service worker registered"))
+                .catch(err => console.log("service worker not registered", err))
+        })
+    }
+</script>
+</body>
+
+</html>
