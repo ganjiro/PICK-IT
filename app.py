@@ -1,4 +1,3 @@
-import threading
 import time
 from flask import Flask, render_template, request
 import json
@@ -43,12 +42,30 @@ def check_gamestart():
     if resp and resp == "ChampSelect":
         ret_value = True
 
-
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
-@app.route('/next_code', methods=["GET"])
-def sus():
+
+@app.route('/waiting', methods=["GET"])
+def next_code():
     return render_template('waiting.html')
+
+@app.route('/champselection', methods=["GET"])
+def next_code():
+    return render_template('champselection.html')
+
+@app.route('/check_gamestatus', methods=["POST"])
+def check_gamestart():
+    ret_value = False
+    conn = Connection.instance()
+    resp = conn.get("_gamestatus")
+
+    if resp:
+        for i in range(10):
+            print("hello")
+
+        return resp
+
+    return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
 
 if __name__ == '__main__':
