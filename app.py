@@ -50,11 +50,11 @@ def next_code():
     return render_template('waiting.html')
 
 @app.route('/champselection', methods=["GET"])
-def next_code():
+def champselection():
     return render_template('champselection.html')
 
 @app.route('/check_gamestatus', methods=["POST"])
-def check_gamestart():
+def check_gamestatus():
     ret_value = False
     conn = Connection.instance()
     resp = conn.get("_gamestatus")
