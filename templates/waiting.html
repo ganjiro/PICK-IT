@@ -16,19 +16,19 @@
                     success: function (response) {
                         console.log(response);
                         if (response["success"]) {
-                            alert("sogno");
+
                             window.location.href = '/champselection';
 
                         }
 
                     },
                     error: function (response) {
-                        console.log(response);
+
                     }
 
-                }, 3000);
+                });
 
-            });
+            }, 3000);
         });
 
 

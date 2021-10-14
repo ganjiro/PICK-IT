@@ -1,3 +1,4 @@
+import ast
 import time
 from flask import Flask, render_template, request
 import json
@@ -53,19 +54,15 @@ def next_code():
 def champselection():
     return render_template('champselection.html')
 
-@app.route('/check_gamestatus', methods=["POST"])
+@app.route('/check_gamestatus', methods=["POST","GET"])
 def check_gamestatus():
-    ret_value = False
+    ret_value = True
     conn = Connection.instance()
     resp = conn.get("_gamestatus")
 
-    if resp:
-        for i in range(10):
-            print("hello")
+    resp = ast.literal_eval(resp)
 
-        return resp
-
-    return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
+    return json.dumps(resp), 200, {'ContentType': 'application/json'}
 
 
 if __name__ == '__main__':

@@ -1,98 +1,116 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <style>
+    img{
+        border-radius: 25px;
+    }
+    </style>
     <h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
+
+    <button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
 
     <div class="container">
         <div class="row">
             <div class="col align-self-start">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ0">
+                     alt="..." id="champ0">
             </div>
 
             <div class="col align-self-end">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ5">
+                     alt="..." id="champ5">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ1">
+                     alt="..." id="champ1">
             </div>
 
             <div class="col align-self-end">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ6">
+                     alt="..." id="champ6">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ3">
+                     alt="..." id="champ2">
             </div>
 
             <div class="col align-self-end">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ7">
+                     alt="..." id="champ7">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ4">
+                     alt="..." id="champ3">
             </div>
 
             <div class="col align-self-end">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ8">
+                     alt="..." id="champ8">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ5">
+                     alt="..." id="champ4">
             </div>
 
             <div class="col align-self-end">
                 <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
-                     alt="..." id = "champ9">
+                     alt="..." id="champ9">
             </div>
         </div>
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var patch = ""
+            $.getJSON("https://ddragon.leagueoflegends.com/api/versions.json", function (lol) {
 
+                patch = lol[0]
+
+            });
+
+            $("#id-bottone").click(function (e) {
+
+                var link = "http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png";
+                $.ajax({
+                    type: "POST",
+                    url: "/check_gamestatus",
+                    data: {id: true},
+                    dataType: 'JSON',
+                    success: function (response) {
+
+                        console.log(response[0]);
+                        $.getJSON("http://ddragon.leagueoflegends.com/cdn/" + patch + "/data/it_IT/championFull.json", function (lol) {
+                            for (let i = 0; i < 10; i++) {
+                                if (response[i] === 0) continue;
+                                champ = lol["keys"][response[i]];
+                                img = lol["data"][champ]["image"]["full"];
+                                document.getElementById("champ" + i).src = "http://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+
+
+                            }
+                        });
+
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+
+                });
+            });
+        })
+        ;
+
+
+    </script>
 
 {% endblock %}
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#id-bottone").click(function () {
-
-            var link = "http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png";
-            $.ajax({
-                type: "POST",
-                url: "/check_gamestatus",
-                data: {},
-                dataType: 'JSON',
-                success: function (response) {
-                    console.log(response);
-                    if (response["success"]) {
-                        for (let i = 0; i < 10; i++) {
-                           response[i]
-                        }
-
-                        document.getElementById("error-code")
-                    }
-                },
-                error: function (response) {
-                    console.log(response);
-                }
-
-            }, 3000);
-        });
-    });
-
-
-
-</script>
