@@ -13,56 +13,56 @@
     <div class="container">
         <div class="row">
             <div class="col align-self-start">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ0">
             </div>
 
             <div class="col align-self-end">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ5">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ1">
             </div>
 
             <div class="col align-self-end">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ6">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ2">
             </div>
 
             <div class="col align-self-end">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ7">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ3">
             </div>
 
             <div class="col align-self-end">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ8">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ4">
             </div>
 
             <div class="col align-self-end">
-                <img src="http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
                      alt="..." id="champ9">
             </div>
         </div>
@@ -78,8 +78,7 @@
             });
 
             $("#id-bottone").click(function (e) {
-
-                var link = "http://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png";
+                
                 $.ajax({
                     type: "POST",
                     url: "/check_gamestatus",
@@ -88,12 +87,12 @@
                     success: function (response) {
 
                         console.log(response[0]);
-                        $.getJSON("http://ddragon.leagueoflegends.com/cdn/" + patch + "/data/it_IT/championFull.json", function (lol) {
+                        $.getJSON("https://ddragon.leagueoflegends.com/cdn/" + patch + "/data/it_IT/championFull.json", function (lol) {
                             for (let i = 0; i < 10; i++) {
                                 if (response[i] === 0) continue;
                                 champ = lol["keys"][response[i]];
                                 img = lol["data"][champ]["image"]["full"];
-                                document.getElementById("champ" + i).src = "http://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
 
 
                             }
