@@ -40,7 +40,7 @@ def check_gamestart():
 
     resp = conn.get("_gamephase")
 
-    if resp and resp == "ChampSelect":
+    if resp and resp != "Matchmaking":
         ret_value = True
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
@@ -58,6 +58,12 @@ def champselection():
 def check_gamestatus():
     ret_value = True
     conn = Connection.instance()
+
+    resp = conn.get("_gamephase")
+
+    if resp and resp == "Matchmaking":
+        return render_template('waiting.html')
+
     resp = conn.get("_gamestatus")
 
     resp = ast.literal_eval(resp)

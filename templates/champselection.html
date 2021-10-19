@@ -8,61 +8,61 @@
     </style>
     <h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
 
-    <button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
+
 
     <div class="container">
         <div class="row">
             <div class="col align-self-start">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ0">
             </div>
 
             <div class="col align-self-end">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ5">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ1">
             </div>
 
             <div class="col align-self-end">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ6">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ2">
             </div>
 
             <div class="col align-self-end">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ7">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ3">
             </div>
 
             <div class="col align-self-end">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ8">
             </div>
         </div>
         <div class="row">
             <div class="col align-self-start">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ4">
             </div>
 
             <div class="col align-self-end">
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.19.1/img/champion/Annie.png" class="img-thumbnail"
+                <img src="https://via.placeholder.com/150" class="img-thumbnail"
                      alt="..." id="champ9">
             </div>
         </div>
@@ -77,7 +77,9 @@
 
             });
 
-            $("#id-bottone").click(function (e) {
+             var intervalId = window.setInterval(function () {
+
+
                 
                 $.ajax({
                     type: "POST",
@@ -89,11 +91,10 @@
                         console.log(response[0]);
                         $.getJSON("https://ddragon.leagueoflegends.com/cdn/" + patch + "/data/it_IT/championFull.json", function (lol) {
                             for (let i = 0; i < 10; i++) {
-                                if (response[i] === 0) continue;
-                                champ = lol["keys"][response[i]];
+                                if (response[i]["pick"] === 0) continue;
+                                champ = lol["keys"][response[i]["pick"]];
                                 img = lol["data"][champ]["image"]["full"];
                                 document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-
 
                             }
                         });
@@ -104,7 +105,7 @@
                     }
 
                 });
-            });
+            },1000);
         })
         ;
 
