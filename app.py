@@ -74,7 +74,7 @@ def champselection():
 def check_gamestatus():
 
     conn = Connection.instance()
-    conn.set_code("F")  # todo remove
+    #conn.set_code("F")  # todo remove
     phase = conn.get("_gamephase")
 
     if phase and phase == "Matchmaking":
