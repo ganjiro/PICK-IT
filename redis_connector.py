@@ -44,7 +44,6 @@ class Singleton:
 class Connection:
     def __init__(self):
         self._r = None
-        self._code = 'F' #todo remove
         self.set_url("redis://:p975d2dba3a5c75f5d5fc51a412f07722e4be526860ae94609067b37cd08adb7d@ec2-54-156-199-127.compute-1.amazonaws.com:17169")
 
     def set_url(self, url):
@@ -67,5 +66,5 @@ class Connection:
 
         return resp
 
-    def set(self, value):
-        return self._r.set(self._code, value)
+    def set(self, value, label=''):
+        return self._r.set(self._code + label, value)

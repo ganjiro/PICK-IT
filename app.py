@@ -15,7 +15,7 @@ def index():
 
 
 @app.route('/code', methods=["POST"])
-def index_():
+def checkcode():
     ret_value = False
     value = request.form.get("id")
     conn = Connection.instance()
@@ -31,6 +31,22 @@ def index_():
         conn.reset_code()
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
+
+@app.route('/lock', methods=["POST"])
+def lockchamp():
+    conn = Connection.instance()
+
+    value = request.form.get("id")
+    try:
+        int(value)
+    except:
+        return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}
+
+    conn.set(value,'_champ')
+
+    a = conn.get('_champ')
+
+    return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
 
 @app.route('/check_gamestart', methods=["POST"])
@@ -54,19 +70,23 @@ def next_code():
 def champselection():
     return render_template('champselection.html')
 
-@app.route('/check_gamestatus', methods=["POST","GET"])
+@app.route('/check_gamestatus', methods=["POST"])
 def check_gamestatus():
-    ret_value = True
+
     conn = Connection.instance()
+    conn.set_code("F")  # todo remove
+    phase = conn.get("_gamephase")
 
-    resp = conn.get("_gamephase")
-
-    if resp and resp == "Matchmaking":
+    if phase and phase == "Matchmaking":
         return render_template('waiting.html')
 
     resp = conn.get("_gamestatus")
 
-    resp = ast.literal_eval(resp)
+    try:
+        resp = ast.literal_eval(resp)
+    except:
+        return {}, 400, {'ContentType': 'application/json'}
+    resp['gamephase'] = phase
 
     return json.dumps(resp), 200, {'ContentType': 'application/json'}
 
