@@ -35,8 +35,9 @@ def checkcode():
 
 @app.route('/setcookie', methods=["POST"])
 def set_cookie():
+    print('porcodio')
     value = request.form.get("code")
-
+    print('ciao')
     res = make_response("<h1>cookie is set</h1>")
     res.set_cookie("code",value)
     return res
@@ -64,7 +65,6 @@ def check_gamestart():
     ret_value = False
     conn = Connection.instance()
 
-
     code = request.cookies.get('code')
     resp = conn.get(str(code)+"_gamephase")
 
@@ -72,7 +72,6 @@ def check_gamestart():
         ret_value = True
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
-
 
 @app.route('/waiting', methods=["GET"])
 def next_code():
@@ -82,9 +81,18 @@ def next_code():
 def champselection():
     return render_template('champselection.html')
 
+@app.route('/getcookie', methods=["POST"])
+def getcookie():
+    code = request.cookies.get('code')
+
+    if not code:
+        return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}
+
+    return json.dumps({'success': True, 'code':code}), 200, {'ContentType': 'application/json'}
+
+
 @app.route('/check_gamestatus', methods=["POST"])
 def check_gamestatus():
-
     conn = Connection.instance()
     #conn.set_code("F")  # todo remove
 

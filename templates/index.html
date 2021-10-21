@@ -13,9 +13,27 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            $.ajax({
+                type: "POST",
+                url: "/getcookie",
+                data: {},
+                dataType: 'JSON',
+                success: function (response) {
+
+                    if (response["success"]) {
+
+                        document.getElementById("id-input").value = response['code']
+
+                    }
+
+                },
+                error: function () {
+
+
+                }
+            });
 
             $("#id-bottone").click(function (e) {
-                // alert("ciao");
 
                 var bool = true;
                 var code = document.getElementById("id-input").value;
@@ -24,6 +42,7 @@
                     bool = false;
                 } else
                     document.getElementById("error-code").innerHTML = "";
+
                 if (bool) {
                     $.ajax({
                         type: "POST",
@@ -31,20 +50,28 @@
                         data: {id: code},
                         dataType: 'JSON',
                         success: function (response) {
-                            console.log(response);
-                            if (response["success"]) {
 
+                            console.log("ok")
+
+                            if (response["success"]) {
                                 $.ajax({
                                     type: "POST",
-                                    url: "/set_cookie",
-                                    data: {code : code},
+                                    url: "/setcookie",
+                                    data: {code: code},
                                     dataType: 'JSON',
+                                    success: function () {
+
+                                        console.log("ok")
+
+                                    },
+                                    error: function () {
+
+                                        console.log("diocane")
+                                    }
 
                                 });
-
                                 window.location.href = '/waiting';
                             }
-
 
                         },
                         error: function (response) {
@@ -52,9 +79,13 @@
                         }
 
                     });
+
                 }
+
+
             });
-        });
+        })
+        ;
 
 
     </script>
