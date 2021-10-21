@@ -34,9 +34,16 @@
                             console.log(response);
                             if (response["success"]) {
 
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/set_cookie",
+                                    data: {code : code},
+                                    dataType: 'JSON',
+
+                                });
+
                                 window.location.href = '/waiting';
                             }
-
 
 
                         },

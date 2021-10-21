@@ -49,22 +49,14 @@ class Connection:
     def set_url(self, url):
         self._r = redis.from_url(url)
 
-    def set_code(self, code):
-        self._code = code
 
-    def reset_code(self):
-        self._code = None
-
-    def get(self, code=''):
-
-        if not self._code:
-            raise Exception("code not initialized!")
-        resp = self._r.get(self._code+code)
+    def get(self, code):
+        resp = self._r.get(code)
 
         if resp:
             resp = str(resp.decode("UTF-8"))
 
         return resp
 
-    def set(self, value, label=''):
-        return self._r.set(self._code + label, value)
+    def set(self, code, value):
+        return self._r.set(code, value)

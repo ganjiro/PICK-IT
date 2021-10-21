@@ -1,6 +1,6 @@
 import ast
 import time
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 import json
 from redis_connector import Connection
 
@@ -11,19 +11,20 @@ app = Flask(__name__)
 def index():
     url = "redis://:p975d2dba3a5c75f5d5fc51a412f07722e4be526860ae94609067b37cd08adb7d@ec2-54-156-199-127.compute-1.amazonaws.com:17169"
     Connection.instance().set_url(url)
+
     return render_template('index.html')
 
 
 @app.route('/code', methods=["POST"])
 def checkcode():
     ret_value = False
-    value = request.form.get("id")
+
+    code = request.form.get("id")
     conn = Connection.instance()
 
-    conn.set_code(value)
-    conn.set("ACK")
+    conn.set(code,"ACK")
     time.sleep(1)
-    resp = conn.get()
+    resp = conn.get(code)
 
     if resp and resp == "RACK":
         ret_value = True
@@ -31,6 +32,14 @@ def checkcode():
         conn.reset_code()
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
+
+@app.route('/setcookie', methods=["POST"])
+def set_cookie():
+    value = request.form.get("code")
+
+    res = make_response("<h1>cookie is set</h1>")
+    res.set_cookie("code",value)
+    return res
 
 @app.route('/lock', methods=["POST"])
 def lockchamp():
@@ -42,9 +51,10 @@ def lockchamp():
     except:
         return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}
 
-    conn.set(value,'_champ')
+    code = request.cookies.get('code')
+    conn.set(str(code)+'_champ',value)
 
-    a = conn.get('_champ')
+    a = conn.get(str(code)+'_champ')
 
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
@@ -54,7 +64,9 @@ def check_gamestart():
     ret_value = False
     conn = Connection.instance()
 
-    resp = conn.get("_gamephase")
+
+    code = request.cookies.get('code')
+    resp = conn.get(str(code)+"_gamephase")
 
     if resp and resp != "Matchmaking":
         ret_value = True
@@ -75,12 +87,14 @@ def check_gamestatus():
 
     conn = Connection.instance()
     #conn.set_code("F")  # todo remove
-    phase = conn.get("_gamephase")
+
+    code = request.cookies.get('code')
+    phase = conn.get(str(code)+"_gamephase")
 
     if phase and phase == "Matchmaking":
         return render_template('waiting.html')
 
-    resp = conn.get("_gamestatus")
+    resp = conn.get(str(code)+"_gamestatus")
 
     try:
         resp = ast.literal_eval(resp)
