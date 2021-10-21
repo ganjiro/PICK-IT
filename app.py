@@ -1,5 +1,7 @@
 import ast
 import time
+import datetime
+
 from flask import Flask, render_template, request, make_response
 import json
 from redis_connector import Connection
@@ -28,18 +30,18 @@ def checkcode():
 
     if resp and resp == "RACK":
         ret_value = True
-    else:
-        conn.reset_code()
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
 @app.route('/setcookie', methods=["POST"])
 def set_cookie():
-    print('porcodio')
+
     value = request.form.get("code")
-    print('ciao')
+
     res = make_response("<h1>cookie is set</h1>")
-    res.set_cookie("code",value)
+    expire_date = datetime.datetime.now()
+    expire_date = expire_date + datetime.timedelta(days=90)
+    res.set_cookie("code",value, expires=expire_date)
     return res
 
 @app.route('/lock', methods=["POST"])
@@ -54,8 +56,6 @@ def lockchamp():
 
     code = request.cookies.get('code')
     conn.set(str(code)+'_champ',value)
-
-    a = conn.get(str(code)+'_champ')
 
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
