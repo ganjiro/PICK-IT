@@ -9,18 +9,15 @@
 
 <h1 id="l_gamephase" class="display-1" style="text-align:center">Waiting</h1>
 
-<!--<div class="col-6" id="divpick">-->
-<!--    <label for="pick_inp">PICK</label><input type="text" class="form-control" id="pick_inp"-->
-<!--                                             style="border-radius: 25px;">-->
-<!--    <button id="pick_btn" class="btn btn-primary" type="submit">submit</button>-->
-<!--</div>-->
-
-<div class="col-4" id="divpick">
-    <select class="js-example-basic-single" style="width:100%;" name="state">
-    </select>
+<div class="row justify-content-md-center">
+    <div class="col-4" id="divpick">
+        <select id="select-picker" class="js-example-basic-single" style="width:100%;" name="state">
+        </select>
+    </div>
+    <div class="col-4">
+        <button id="select-picker-btn" class="btn btn-primary" type="submit">submit</button>
+    </div>
 </div>
-
-
 <div class="container">
     <div class="row">
         <div class="col align-self-start" id="div0">
@@ -100,6 +97,7 @@
 </div>
 
 <script type="text/javascript">
+
     $("#divpick").hide();
     $(document).ready(function () {
 
@@ -115,6 +113,25 @@
             });
         });
 
+        $("#select-picker-btn").click(function () {
+                var select = document.getElementById('select-picker');
+                var code = select.options[select.selectedIndex].value;
+                console.log(code);
+                $.ajax({
+                    type: "POST",
+                    url: "/lock",
+                    data: {id: code},
+                    dataType: 'JSON',
+                    success: function (response) {
+                        console.log(response);
+                        control = false;
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+
+                });
+        });
 
         var intervalId = window.setInterval(function () {
 
@@ -230,9 +247,6 @@
                                     for (let id in response) {
                                         html += "<option value='" + id + "'>" + response[id] + "</option>";
                                     }
-
-                                    document.getElementsByClassName("js-example-basic-single")[0].innerHTML = html;
-                                    $('.js-example-basic-single').select2();
                                 },
                                 error: function (response) {
                                     console.log(response);
@@ -345,9 +359,6 @@
                                     for (let id in response) {
                                         html += "<option value='" + id + "'>" + response[id] + "</option>";
                                     }
-
-                                    document.getElementsByClassName("js-example-basic-single")[0].innerHTML = html;
-                                    $('.js-example-basic-single').select2();
                                 },
                                 error: function (response) {
                                     console.log(response);
@@ -421,28 +432,6 @@
             });
         }, 200);
 
-        $("#pick_btn").click(function (e) {
-            var code = document.getElementById("pick_inp").value;
-            $.ajax({
-                type: "POST",
-                url: "/lock",
-                data: {id: code},
-                dataType: 'JSON',
-                success: function (response) {
-                    console.log(response);
-                    if (response["success"]) {
-                        document.getElementById("divpick").style.visibility = 'false'
-
-                    }
-
-                },
-                error: function (response) {
-                    console.log(response);
-                }
-
-            });
-
-        });
     })
     ;
 

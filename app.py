@@ -52,7 +52,7 @@ def lockchamp():
     try:
         int(value)
     except:
-        return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}
+        return json.dumps({'success': False}), 400, {'ContentType': 'application/json'}
 
     code = request.cookies.get('code')
     conn.set(str(code)+'_champ',value)
@@ -64,9 +64,9 @@ def lockchamp():
 def check_pickable():
 
     conn = Connection.instance()
-    # XXX
-    # code = request.cookies.get('code')
-    code = "OKX883"
+
+    code = request.cookies.get('code')
+
     resp = conn.get(str(code)+"_pickable")
 
     try:
