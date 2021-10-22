@@ -60,6 +60,22 @@ def lockchamp():
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
 
+@app.route('/set_pickable', methods=["POST"])
+def check_pickable():
+
+    conn = Connection.instance()
+    # XXX
+    # code = request.cookies.get('code')
+    code = "OKX883"
+    resp = conn.get(str(code)+"_pickable")
+
+    try:
+        resp = ast.literal_eval(resp)
+    except:
+        return {}, 400, {'ContentType': 'application/json'}
+
+    return json.dumps(resp), 200, {'ContentType': 'application/json'}
+
 @app.route('/check_gamestart', methods=["POST"])
 def check_gamestart():
     ret_value = False
