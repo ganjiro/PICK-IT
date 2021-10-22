@@ -99,6 +99,7 @@
 <script type="text/javascript">
 
     $("#divpick").hide();
+    $("#select-picker-btn").hide();
     $(document).ready(function () {
 
         $('.js-example-basic-single').select2();
@@ -146,6 +147,7 @@
                         case 'DeclaringChamp':
 
                             $("#divpick").hide();
+                            $("#select-picker-btn").hide();
 
                             for (let i = 0; i < 10; i++) {
                                 if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
@@ -166,6 +168,7 @@
                         case  'Banning':
 
                             $("#divpick").hide();
+                            $("#select-picker-btn").hide();
 
                             for (let i = 0; i < 10; i++) {
 
@@ -204,6 +207,7 @@
                         case  'yourTurnToBan':
 
                             $("#divpick").show();
+                            $("#select-picker-btn").show();
 
                             for (let i = 0; i < 10; i++) {
 
@@ -242,10 +246,14 @@
                                 data: {},
                                 dataType: 'JSON',
                                 success: function (response) {
-                                    // response è il json
-                                    var html = "";
                                     for (let id in response) {
-                                        html += "<option value='" + id + "'>" + response[id] + "</option>";
+                                        if ($('#select-picker').find("option[value='" + id + "']").length) {
+                                            console.log("già esiste");
+                                        }
+                                        else{
+                                            var newOption = new Option(response[id], id, false, false);
+                                            $('#select-picker').append(newOption).trigger('change');
+                                        }
                                     }
                                 },
                                 error: function (response) {
@@ -257,6 +265,7 @@
 
                         case 'PickPhase':
                             $("#divpick").hide();
+                            $("#select-picker-btn").hide();
 
                             for (let i = 0; i < 10; i++) {
 
@@ -310,6 +319,7 @@
 
                         case 'yourTurnToPick':
                             $("#divpick").show();
+                            $("#select-picker-btn").show();
 
                             for (let i = 0; i < 10; i++) {
 
@@ -354,10 +364,14 @@
                                 data: {},
                                 dataType: 'JSON',
                                 success: function (response) {
-                                    // response è il json
-                                    var html = "";
                                     for (let id in response) {
-                                        html += "<option value='" + id + "'>" + response[id] + "</option>";
+                                        if ($('#select-picker').find("option[value='" + id + "']").length) {
+                                            console.log("già esiste");
+                                        }
+                                        else{
+                                            var newOption = new Option(response[id], id, false, false);
+                                            $('#select-picker').append(newOption).trigger('change');
+                                        }
                                     }
                                 },
                                 error: function (response) {
@@ -369,6 +383,7 @@
 
                         case 'Picking':
                             $("#divpick").hide();
+                            $("#select-picker-btn").hide();
 
                             for (let i = 0; i < 10; i++) {
 
@@ -410,6 +425,7 @@
                             break;
                         case  'Ending':
                             $("#divpick").hide();
+                            $("#select-picker-btn").hide();
 
 
                             break;
