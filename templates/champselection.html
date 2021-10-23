@@ -15,7 +15,7 @@
 </style>
 <br>
 <p align="center">
-<div  id="id-timer" align="center" style="font-size: 35px" class="display-1 text-white">FASE</div></p><br>
+<div id="id-timer" align="center" style="font-size: 35px" class="display-1 text-white">FASE</div></p><br>
 <div style="text-align: center">
 </div>
 
@@ -127,13 +127,18 @@
             data: {},
             dataType: 'JSON',
             success: function (response) {
+                console.log("ciao anico sono qui 0");
                 console.log(response['gamephase']);
+                console.log("ciao anico sono qui 1");
                 for (let i = 0; i < 10; i++) {
-                    if (response[i]['me'] === "True") {
+                    console.log("ciao anico sono qui for");
+                    if (response[i]['me']) {
                         if (i <= 4) {
+                            console.log("ciao anico sono qui if");
                             document.getElementById('l_team0').innerHTML = "My Team"
                             document.getElementById('l_team1').innerHTML = "Enemy Team"
                         } else {
+                            console.log("ciao anico sono qui else");
                             document.getElementById('l_team0').innerHTML = "Enemy Team"
                             document.getElementById('l_team1').innerHTML = "My Team"
                         }
@@ -444,6 +449,10 @@
                         case  'Ending':
                             $("#divpick").hide();
                             $("#select-picker-btn").hide();
+                            break;
+
+                        case 'Matchmaking':
+                            window.location.href = '/waiting';
                             break;
 
                         case 'Gamestart':

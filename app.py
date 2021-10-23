@@ -24,7 +24,7 @@ def checkcode():
     code = request.form.get("id")
     conn = Connection.instance()
 
-    conn.set(code,"ACK")
+    conn.set(code, "ACK")
     time.sleep(1)
     resp = conn.get(code)
 
@@ -33,16 +33,17 @@ def checkcode():
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
+
 @app.route('/setcookie', methods=["POST"])
 def set_cookie():
-
     value = request.form.get("code")
 
     res = make_response("<h1>cookie is set</h1>")
     expire_date = datetime.datetime.now()
     expire_date = expire_date + datetime.timedelta(days=90)
-    res.set_cookie("code",value, expires=expire_date)
+    res.set_cookie("code", value, expires=expire_date)
     return res
+
 
 @app.route('/lock', methods=["POST"])
 def lockchamp():
@@ -55,19 +56,18 @@ def lockchamp():
         return json.dumps({'success': False}), 400, {'ContentType': 'application/json'}
 
     code = request.cookies.get('code')
-    conn.set(str(code)+'_champ',value)
+    conn.set(str(code) + '_champ', value)
 
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
 
 @app.route('/set_pickable', methods=["POST"])
 def check_pickable():
-
     conn = Connection.instance()
 
     code = request.cookies.get('code')
 
-    resp = conn.get(str(code)+"_pickable")
+    resp = conn.get(str(code) + "_pickable")
 
     try:
         resp = ast.literal_eval(resp)
@@ -76,26 +76,30 @@ def check_pickable():
 
     return json.dumps(resp), 200, {'ContentType': 'application/json'}
 
+
 @app.route('/check_gamestart', methods=["POST"])
 def check_gamestart():
     ret_value = False
     conn = Connection.instance()
 
     code = request.cookies.get('code')
-    resp = conn.get(str(code)+"_gamephase")
+    resp = conn.get(str(code) + "_gamephase")
 
     if resp and resp != "Matchmaking":
         ret_value = True
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
+
 @app.route('/waiting', methods=["GET"])
 def next_code():
     return render_template('waiting.html')
 
+
 @app.route('/champselection', methods=["GET"])
 def champselection():
     return render_template('champselection.html')
+
 
 @app.route('/getcookie', methods=["POST"])
 def getcookie():
@@ -104,26 +108,24 @@ def getcookie():
     if not code:
         return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}
 
-    return json.dumps({'success': True, 'code':code}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'success': True, 'code': code}), 200, {'ContentType': 'application/json'}
 
 
 @app.route('/check_gamestatus', methods=["POST"])
 def check_gamestatus():
     conn = Connection.instance()
-    #conn.set_code("F")  # todo remove
+
 
     code = request.cookies.get('code')
-    phase = conn.get(str(code)+"_gamephase")
+    phase = conn.get(str(code) + "_gamephase")
 
-    if phase and phase == "Matchmaking":
-        return render_template('waiting.html')
-
-    resp = conn.get(str(code)+"_gamestatus")
+    resp = conn.get(str(code) + "_gamestatus")
 
     try:
         resp = ast.literal_eval(resp)
     except:
-        return {}, 400, {'ContentType': 'application/json'}
+        return {gamephase: phase}, 200, {'ContentType': 'application/json'}
+
     resp['gamephase'] = phase
 
     return json.dumps(resp), 200, {'ContentType': 'application/json'}
