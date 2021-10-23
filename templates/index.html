@@ -1,93 +1,93 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
+<h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
 
-    <div class="col-6">
-        <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
-        <input type="text" class="form-control" id="id-input" style="border-radius: 25px;">
-    </div>
+<div class="col-6">
+    <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
+    <input type="text" class="form-control" id="id-input" style="text-transform:uppercase" style="border-radius: 25px;">
+</div>
 
-    <button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
+<button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+<script type="text/javascript">
+    $(document).ready(function () {
 
-            $.ajax({
-                type: "POST",
-                url: "/getcookie",
-                data: {},
-                dataType: 'JSON',
-                success: function (response) {
+        $.ajax({
+            type: "POST",
+            url: "/getcookie",
+            data: {},
+            dataType: 'JSON',
+            success: function (response) {
 
-                    if (response["success"]) {
+                if (response["success"]) {
 
-                        document.getElementById("id-input").value = response['code']
-
-                    }
-
-                },
-                error: function () {
-
+                    document.getElementById("id-input").value = response['code']
 
                 }
-            });
 
-            $("#id-bottone").click(function (e) {
+            },
+            error: function () {
 
-                var bool = true;
-                var code = document.getElementById("id-input").value;
-                if (code.length === 0) {
-                    document.getElementById("error-code").innerHTML = "*Obbligatorio";
-                    bool = false;
-                } else
-                    document.getElementById("error-code").innerHTML = "";
 
-                if (bool) {
-                    $.ajax({
-                        type: "POST",
-                        url: "/code",
-                        data: {id: code},
-                        dataType: 'JSON',
-                        success: function (response) {
+            }
+        });
 
-                            console.log("ok")
+        $("#id-bottone").click(function (e) {
 
-                            if (response["success"]) {
-                                $.ajax({
-                                    type: "POST",
-                                    url: "/setcookie",
-                                    data: {code: code},
-                                    dataType: 'JSON',
-                                    success: function () {
+            var bool = true;
+            var code = document.getElementById("id-input").value;
+            if (code.length === 0) {
+                document.getElementById("error-code").innerHTML = "Password errata, ritenta!";
+                bool = false;
+            } else
+                document.getElementById("error-code").innerHTML = "";
 
-                                        console.log("ok")
+            if (bool) {
+                $.ajax({
+                    type: "POST",
+                    url: "/code",
+                    data: {id: code},
+                    dataType: 'JSON',
+                    success: function (response) {
 
-                                    },
-                                    error: function () {
+                        console.log("ok")
 
-                                        console.log("diocane")
-                                    }
+                        if (response["success"]) {
+                            $.ajax({
+                                type: "POST",
+                                url: "/setcookie",
+                                data: {code: code},
+                                dataType: 'JSON',
+                                success: function () {
 
-                                });
-                                window.location.href = '/waiting';
-                            }
+                                    console.log("ok")
 
-                        },
-                        error: function (response) {
-                            console.log(response);
+                                },
+                                error: function () {
+
+                                    console.log("diocane")
+                                }
+
+                            });
+                            window.location.href = '/waiting';
                         }
 
-                    });
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
 
-                }
+                });
+
+            }
 
 
-            });
-        })
-        ;
+        });
+    })
+    ;
 
 
-    </script>
+</script>
 
 {% endblock %}
