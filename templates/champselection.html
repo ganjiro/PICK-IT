@@ -196,6 +196,9 @@
                 dataType: 'JSON',
                 success: function (response) {
                     console.log(response['gamephase']);
+
+                    document.getElementById("id-timer").innerHTML = response["time"]
+
                     switch (response['gamephase']) {
 
                         case 'DeclaringChamp':
