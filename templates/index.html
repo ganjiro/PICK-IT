@@ -10,19 +10,49 @@
         #computer {
             display: none;
         }
+        body {
+            background-image: url('static/sfondo_recutted.jpg');
+        }
     }
+
+    #telefono {
+        display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+        #telefono {
+            display: none;
+        }
+        body {
+            background-image: url('static/sfondo2.jpg');
+        }
+    }
+
+    #telefono {
+        display: block;
+    }
+
+    /*@media screen and (min-width: 768px) {*/
+    /*    #telefono {*/
+    /*        display: none;*/
+    /*    }*/
+    /*}*/
 </style>
 
 <h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
-
 <div class="col-6">
     <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
-    <input type="text" class="form-control" id="id-input" style="text-transform:uppercase"
-           style="border-radius: 25px;">
+    <input type="text" class="form-control" id="id-input" style="text-transform:uppercase" style="border-radius: 25px;"> </input>
 </div>
-
 <button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
 
+<!--<div id="telefono">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-image: url('static/sfondo_recutted.jpg');-->
+<!--        }-->
+<!--    </style>-->
+<!--</div>-->
 
 <div id="computer">
     <a href="static/sfondo.jpg" download>download the zip</a>
@@ -83,8 +113,7 @@
 
                                 },
                                 error: function () {
-
-                                    console.log("diocane")
+                                    console.log("errore")
                                 }
 
                             });
