@@ -1,14 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
+<style>
+    #computer {
+        display: block;
+    }
 
-<div class="col-6">
-    <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
-    <input type="text" class="form-control" id="id-input" style="text-transform:uppercase" style="border-radius: 25px;">
+    @media screen and (max-width: 768px) {
+        #computer {
+            display: none;
+        }
+    }
+
+    #telefono {
+        display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+        #telefono {
+            display: none;
+        }
+    }
+</style>
+
+<div id="computer"><a href="static/e62ac076009313.5c5ca8e8c4a85.jpg" download>download the zip</a></div>
+
+<div id="telefono">
+    <h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
+
+    <div class="col-6">
+        <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
+        <input type="text" class="form-control" id="id-input" style="text-transform:uppercase"
+               style="border-radius: 25px;">
+    </div>
+
+    <button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
 </div>
 
-<button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
 
 <script type="text/javascript">
     $(document).ready(function () {
