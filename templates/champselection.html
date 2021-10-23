@@ -1,120 +1,136 @@
 {% extends 'base.html' %}
 {% block title %} Welcome Lol Picker App {% endblock %}
 {% block content %}
-<style>
-    img {
-        border-radius: 25px;
-    }
-</style>
+    <style>
+        img {
+            border-radius: 25px;
+        }
+    </style>
 
-<h1 id="l_gamephase" class="display-1" style="text-align:center">Waiting</h1>
+    <h1 id="l_gamephase" class="display-1" style="text-align:center">Waiting</h1>
 
-<div class="row justify-content-md-center">
-    <div class="col-4" id="divpick">
-        <select id="select-picker" class="js-example-basic-single" style="width:100%;" name="state">
-        </select>
-    </div>
-    <div class="col-4">
-        <button id="select-picker-btn" class="btn btn-primary" type="submit">submit</button>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col align-self-start" id="div0">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ0">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban0" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
+    <div class="row justify-content-md-center">
+        <div class="col-4" id="divpick">
+            <select id="select-picker" class="js-example-basic-single" style="width:100%;" name="state">
+            </select>
         </div>
-
-        <div class="col align-self-end" id="div5">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ5">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban5" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
+        <div class="col-4">
+            <button id="select-picker-btn" class="btn btn-primary" type="submit">submit</button>
         </div>
     </div>
-    <div class="row">
-        <div class="col align-self-start" id="div1">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ1">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban1" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-start" id="div0">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ0">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban0" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
 
-        <div class="col align-self-end" id="div6">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ6">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban6" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
+            <div class="col align-self-end" id="div5">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ5">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban5" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-start" id="div1">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ1">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban1" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+
+            <div class="col align-self-end" id="div6">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ6">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban6" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-start" id="div2">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ2">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban2" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+
+            <div class="col align-self-end" id="div7">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ7">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban7" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-start" id="div3">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ3">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban3" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+
+            <div class="col align-self-end" id="div8">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ8">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban8" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-start" id="div4">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ4">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban4" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
+
+            <div class="col align-self-end" id="div9">
+                <img src="https://via.placeholder.com/120" class="img-thumbnail"
+                     alt="..." championid="0" id="champ9">
+                <img src="https://via.placeholder.com/65" championid="0" id="ban9" alt="Example2" width="65" height="65"
+                     style="vertical-align:top">
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col align-self-start" id="div2">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ2">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban2" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
 
-        <div class="col align-self-end" id="div7">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ7">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban7" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col align-self-start" id="div3">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ3">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban3" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
+    <script type="text/javascript">
 
-        <div class="col align-self-end" id="div8">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ8">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban8" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col align-self-start" id="div4">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ4">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban4" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
+        $("#divpick").hide();
+        $("#select-picker-btn").hide();
 
-        <div class="col align-self-end" id="div9">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ9">
-            <img src="https://via.placeholder.com/65" championid="0" id="ban9" alt="Example2" width="65" height="65"
-                 style="vertical-align:top">
-        </div>
-    </div>
-</div>
 
-<script type="text/javascript">
+        $(document).ready(function () {
 
-    $("#divpick").hide();
-    $("#select-picker-btn").hide();
-    $(document).ready(function () {
 
-        $('.js-example-basic-single').select2();
+            $('.js-example-basic-single').select2();
 
-        var patch = ""
-        var champInfo = null
-        $.getJSON("https://ddragon.leagueoflegends.com/api/versions.json", function (json) {
+            var patch = ""
+            var champInfo = null
+            $.getJSON("https://ddragon.leagueoflegends.com/api/versions.json", function (json) {
 
-            patch = json[0]
-            $.getJSON("https://ddragon.leagueoflegends.com/cdn/" + patch + "/data/it_IT/championFull.json", function (json) {
-                champInfo = json
+                patch = json[0]
+                $.getJSON("https://ddragon.leagueoflegends.com/cdn/" + patch + "/data/it_IT/championFull.json", function (json) {
+                    champInfo = json
+                });
+
+
+                for (let id in response) {
+
+                    if ($('#select-picker').find("option[value='" + id + "']").length) {
+                        console.log("già esiste");
+                    } else {
+                        var newOption = new Option(champInfo['keys'][id], id, false, false);
+                        $('#select-picker').append(newOption).trigger('change');
+                    }
+                }
+
+
             });
-        });
 
-        $("#select-picker-btn").click(function () {
+            $("#select-picker-btn").click(function () {
                 var select = document.getElementById('select-picker');
                 var code = select.options[select.selectedIndex].value;
                 console.log(code);
@@ -132,158 +148,45 @@
                     }
 
                 });
-        });
+            });
 
-        var intervalId = window.setInterval(function () {
+            var intervalId = window.setInterval(function () {
 
-            $.ajax({
-                type: "POST",
-                url: "/check_gamestatus",
-                data: {id: true},
-                dataType: 'JSON',
-                success: function (response) {
-                    console.log(response['gamephase'])
-                    switch (response['gamephase']) {
-                        case 'DeclaringChamp':
+                $.ajax({
+                    type: "POST",
+                    url: "/check_gamestatus",
+                    data: {id: true},
+                    dataType: 'JSON',
+                    success: function (response) {
+                        console.log(response['gamephase'])
+                        switch (response['gamephase']) {
+                            case 'DeclaringChamp':
 
-                            $("#divpick").hide();
-                            $("#select-picker-btn").hide();
+                                $("#divpick").hide();
+                                $("#select-picker-btn").hide();
 
-                            for (let i = 0; i < 10; i++) {
-                                if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
+                                for (let i = 0; i < 10; i++) {
+                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
 
-                                    if (response[i]["pickIntent"] === 0) {
+                                        if (response[i]["pickIntent"] === 0) {
 
-                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
-
-                                    } else {
-                                        champ = champInfo["keys"][response[i]["pickIntent"]];
-                                        img = champInfo["data"][champ]["image"]["full"];
-                                        document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                    }
-                                }
-                            }
-
-                            break;
-                        case  'Banning':
-
-                            $("#divpick").hide();
-                            $("#select-picker-btn").hide();
-
-                            for (let i = 0; i < 10; i++) {
-
-                                if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
-
-                                    if (response[i]["pickIntent"] === 0) {
-                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
-                                    } else {
-                                        champ = champInfo["keys"][response[i]["pickIntent"]];
-                                        img = champInfo["data"][champ]["image"]["full"];
-                                        document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                    }
-                                }
-
-                                if (document.getElementById("ban" + i).getAttribute("championId") !== response[i]["ban"]) {
-
-                                    if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
-                                        document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
-                                    } else {
-                                        champ = champInfo["keys"][response[i]["ban"]];
-                                        img = champInfo["data"][champ]["image"]["full"];
-                                        document.getElementById("ban" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                    }
-                                }
-
-                                if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
-                                } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
-                                }
-
-                            }
-
-                            break;
-
-                        case  'yourTurnToBan':
-
-                            $("#divpick").show();
-                            $("#select-picker-btn").show();
-
-                            for (let i = 0; i < 10; i++) {
-
-                                if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
-
-                                    if (response[i]["pickIntent"] === 0) {
-                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
-                                    } else {
-                                        champ = champInfo["keys"][response[i]["pickIntent"]];
-                                        img = champInfo["data"][champ]["image"]["full"];
-                                        document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                    }
-                                }
-
-                                if (document.getElementById("ban" + i).getAttribute("championId") !== response[i]["ban"]) {
-
-                                    if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
-                                        document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
-                                    } else {
-                                        champ = champInfo["keys"][response[i]["ban"]];
-                                        img = champInfo["data"][champ]["image"]["full"];
-                                        document.getElementById("ban" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                    }
-                                }
-
-                                if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
-                                } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
-                                }
-                            }
-
-                            $.ajax({
-                                type: "POST",
-                                url: "/set_pickable",
-                                data: {},
-                                dataType: 'JSON',
-                                success: function (response) {
-                                    for (let id in response) {
-                                        if ($('#select-picker').find("option[value='" + id + "']").length) {
-                                            console.log("già esiste");
-                                        }
-                                        else{
-                                            var newOption = new Option(response[id], id, false, false);
-                                            $('#select-picker').append(newOption).trigger('change');
-                                        }
-                                    }
-                                },
-                                error: function (response) {
-                                    console.log(response);
-                                }
-                            });
-                            break;
-
-
-                        case 'PickPhase':
-                            $("#divpick").hide();
-                            $("#select-picker-btn").hide();
-
-                            for (let i = 0; i < 10; i++) {
-
-                                if (response[i]["pick"] !== 0) {
-                                    document.getElementById("champ" + i).style.borderColor = 'red';
-                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
-
-                                        if (response[i]["pick"] === 0) {
                                             document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+
                                         } else {
-                                            champ = champInfo["keys"][response[i]["pick"]];
+                                            champ = champInfo["keys"][response[i]["pickIntent"]];
                                             img = champInfo["data"][champ]["image"]["full"];
                                             document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
                                         }
                                     }
+                                }
 
-                                } else {
+                                break;
+                            case  'Banning':
 
+                                $("#divpick").hide();
+                                $("#select-picker-btn").hide();
+
+                                for (let i = 0; i < 10; i++) {
 
                                     if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
 
@@ -295,49 +198,34 @@
                                             document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
                                         }
                                     }
-                                }
 
-                                if (document.getElementById("ban" + i).getAttribute("championId") !== response[i]["ban"]) {
+                                    if (document.getElementById("ban" + i).getAttribute("championId") !== response[i]["ban"]) {
 
-                                    if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
-                                        document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
+                                        if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
+                                            document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
+                                        } else {
+                                            champ = champInfo["keys"][response[i]["ban"]];
+                                            img = champInfo["data"][champ]["image"]["full"];
+                                            document.getElementById("ban" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                        }
+                                    }
+
+                                    if (response[i]["inAction"]) {
+                                        document.getElementById("div" + i).style.backgroundColor = 'green';
                                     } else {
-                                        champ = champInfo["keys"][response[i]["ban"]];
-                                        img = champInfo["data"][champ]["image"]["full"];
-                                        document.getElementById("ban" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                    }
-                                }
-
-                                if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
-                                } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
-                                }
-                            }
-
-                            break;
-
-                        case 'yourTurnToPick':
-                            $("#divpick").show();
-                            $("#select-picker-btn").show();
-
-                            for (let i = 0; i < 10; i++) {
-
-                                if (response[i]["pick"] !== 0) {
-                                    document.getElementById("champ" + i).style.borderColor = 'red';
-                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
-
-                                        if (response[i]["pick"] === 0) {
-                                            document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
-                                        } else {
-                                            champ = champInfo["keys"][response[i]["pick"]];
-                                            img = champInfo["data"][champ]["image"]["full"];
-                                            document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
-                                        }
+                                        document.getElementById("div" + i).style.backgroundColor = 'white';
                                     }
 
-                                } else {
+                                }
 
+                                break;
+
+                            case  'yourTurnToBan':
+
+                                $("#divpick").show();
+                                $("#select-picker-btn").show();
+
+                                for (let i = 0; i < 10; i++) {
 
                                     if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
 
@@ -349,117 +237,227 @@
                                             document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
                                         }
                                     }
-                                }
 
-                                if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
-                                } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
-                                }
-                            }
+                                    if (document.getElementById("ban" + i).getAttribute("championId") !== response[i]["ban"]) {
 
-                            $.ajax({
-                                type: "POST",
-                                url: "/set_pickable",
-                                data: {},
-                                dataType: 'JSON',
-                                success: function (response) {
-                                    for (let id in response) {
-                                        if ($('#select-picker').find("option[value='" + id + "']").length) {
-                                            console.log("già esiste");
-                                        }
-                                        else{
-                                            var newOption = new Option(response[id], id, false, false);
-                                            $('#select-picker').append(newOption).trigger('change');
-                                        }
-                                    }
-                                },
-                                error: function (response) {
-                                    console.log(response);
-                                }
-                            });
-
-                            break;
-
-                        case 'Picking':
-                            $("#divpick").hide();
-                            $("#select-picker-btn").hide();
-
-                            for (let i = 0; i < 10; i++) {
-
-                                if (response[i]["pick"] !== 0) {
-                                    document.getElementById("champ" + i).style.borderColor = 'red';
-                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
-
-                                        if (response[i]["pick"] === 0) {
-                                            document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                        if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
+                                            document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
                                         } else {
-                                            champ = champInfo["keys"][response[i]["pick"]];
+                                            champ = champInfo["keys"][response[i]["ban"]];
                                             img = champInfo["data"][champ]["image"]["full"];
-                                            document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            document.getElementById("ban" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+
+                                            $("#select-picker option[value=" + response[i]["ban"] + "]").prop('disabled', true)
+
                                         }
                                     }
 
-                                } else {
+                                    if (response[i]["inAction"]) {
+                                        document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    } else {
+                                        document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    }
+                                }
 
 
-                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
+                                break;
 
-                                        if (response[i]["pickIntent"] === 0) {
-                                            document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+
+                            case 'PickPhase':
+                                $("#divpick").hide();
+                                $("#select-picker-btn").hide();
+
+                                for (let i = 0; i < 10; i++) {
+
+                                    if (response[i]["pick"] !== 0) {
+                                        document.getElementById("champ" + i).style.borderColor = 'red';
+                                        if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
+
+                                            if (response[i]["pick"] === 0) {
+                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                            } else {
+                                                champ = champInfo["keys"][response[i]["pick"]];
+                                                img = champInfo["data"][champ]["image"]["full"];
+                                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            }
+                                        }
+
+                                    } else {
+
+
+                                        if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
+
+                                            if (response[i]["pickIntent"] === 0) {
+                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                            } else {
+                                                champ = champInfo["keys"][response[i]["pickIntent"]];
+                                                img = champInfo["data"][champ]["image"]["full"];
+                                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            }
+                                        }
+                                    }
+
+                                    if (document.getElementById("ban" + i).getAttribute("championId") !== response[i]["ban"]) {
+
+                                        if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
+                                            document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
                                         } else {
-                                            champ = champInfo["keys"][response[i]["pickIntent"]];
+                                            champ = champInfo["keys"][response[i]["ban"]];
                                             img = champInfo["data"][champ]["image"]["full"];
-                                            document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            document.getElementById("ban" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
                                         }
+                                    }
+
+                                    if (response[i]["inAction"]) {
+                                        document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    } else {
+                                        document.getElementById("div" + i).style.backgroundColor = 'white';
                                     }
                                 }
 
-                                if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
-                                } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                break;
+
+                            case 'yourTurnToPick':
+                                $("#divpick").show();
+                                $("#select-picker-btn").show();
+
+                                for (let i = 0; i < 10; i++) {
+
+                                    if (response[i]["pick"] !== 0) {
+                                        document.getElementById("champ" + i).style.borderColor = 'red';
+                                        if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
+
+                                            if (response[i]["pick"] === 0) {
+                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                            } else {
+                                                champ = champInfo["keys"][response[i]["pick"]];
+                                                img = champInfo["data"][champ]["image"]["full"];
+                                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            }
+                                        }
+
+                                    } else {
+
+
+                                        if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
+
+                                            if (response[i]["pickIntent"] === 0) {
+                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                            } else {
+                                                champ = champInfo["keys"][response[i]["pickIntent"]];
+                                                img = champInfo["data"][champ]["image"]["full"];
+                                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            }
+                                        }
+                                    }
+
+                                    if (response[i]["inAction"]) {
+                                        document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    } else {
+                                        document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    }
                                 }
-                            }
 
-                            break;
-                        case  'Ending':
-                            $("#divpick").hide();
-                            $("#select-picker-btn").hide();
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/set_pickable",
+                                    data: {},
+                                    dataType: 'JSON',
+                                    success: function (response) {
+                                        for (let id in response) {
+                                            if ($('#select-picker').find("option[value='" + id + "']").length) {
+                                                console.log("già esiste");
+                                            } else {
+                                                var newOption = new Option(champInfo['keys'][id], id, false, false);
+                                                $('#select-picker').append(newOption).trigger('change');
+                                            }
+                                        }
+                                    },
+                                    error: function (response) {
+                                        console.log(response);
+                                    }
+                                });
+
+                                break;
+
+                            case 'Picking':
+                                $("#divpick").hide();
+                                $("#select-picker-btn").hide();
+
+                                for (let i = 0; i < 10; i++) {
+
+                                    if (response[i]["pick"] !== 0) {
+                                        document.getElementById("champ" + i).style.borderColor = 'red';
+                                        if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
+
+                                            if (response[i]["pick"] === 0) {
+                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                            } else {
+                                                champ = champInfo["keys"][response[i]["pick"]];
+                                                img = champInfo["data"][champ]["image"]["full"];
+                                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            }
+                                        }
+
+                                    } else {
 
 
-                            break;
+                                        if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
+
+                                            if (response[i]["pickIntent"] === 0) {
+                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                            } else {
+                                                champ = champInfo["keys"][response[i]["pickIntent"]];
+                                                img = champInfo["data"][champ]["image"]["full"];
+                                                document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                            }
+                                        }
+                                    }
+
+                                    if (response[i]["inAction"]) {
+                                        document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    } else {
+                                        document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    }
+                                }
+
+                                break;
+                            case  'Ending':
+                                $("#divpick").hide();
+                                $("#select-picker-btn").hide();
 
 
-                        case 'Gamestart':
+                                break;
 
-                            window.location.href = '/';
+                            case 'Gamestart':
 
-                            break;
-                        default:
-                            return;
+                                window.location.href = '/';
+
+                                break;
+                            default:
+                                return;
+                        }
+
+                    },
+                    error: function (response) {
+                        console.log(response);
                     }
 
-                },
-                error: function (response) {
-                    console.log(response);
-                }
+                });
+            }, 200);
 
-            });
-        }, 200);
-
-    })
-    ;
+        })
+        ;
 
 
-    function getIP(json) {
-        document.write("My public IP address is: ", json.ip);
-    }
+        function getIP(json) {
+            document.write("My public IP address is: ", json.ip);
+        }
 
 
-</script>
+    </script>
 
-<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
+    <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>
 
 {% endblock %}
 
