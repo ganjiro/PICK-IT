@@ -10,44 +10,40 @@
         #computer {
             display: none;
         }
-
         body {
             background-image: url('static/sfondo_recutted.jpg');
         }
     }
-
-    #telefono {
-        display: block;
-    }
-
     @media screen and (min-width: 768px) {
-        #telefono {
-            display: none;
-        }
-
         body {
             background-image: url('static/sfondo2.jpg');
         }
     }
 
-    #telefono {
-        display: block;
+    body {
+        font-family: 'Arial', sans-serif !important;
+        font-palette: light;
+        font-size: 20px;
+        background-image: url('static/sfondo.jpg');
     }
-
-    /*@media screen and (min-width: 768px) {*/
-    /*    #telefono {*/
-    /*        display: none;*/
-    /*    }*/
-    /*}*/
 </style>
 
+<br><br>
+
 <h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
-<div class="col-6">
-    <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
-    <input type="text" class="form-control" id="id-input" style="text-transform:uppercase"
-           style="border-radius: 25px;"> </input>
+
+<br>
+
+<div class="form-group row">
+    <div class="col-xs-2">
+        <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
+        <input class="form-control" id="id-input" type="text" style="text-transform:uppercase"
+               style="border-radius: 25px;" style="width:100px; height:30px">
+        <button id="id-bottone" class="btn btn-dark text-center" type="submit"
+                style="width:60px; height:30px; vertical-align: center">OK
+        </button>
+    </div>
 </div>
-<button id="id-bottone" class="btn btn-primary" type="submit">submit</button>
 
 <!--<div id="telefono">-->
 <!--    <style>-->
