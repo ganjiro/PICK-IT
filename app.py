@@ -124,7 +124,7 @@ def check_gamestatus():
     try:
         resp = ast.literal_eval(resp)
     except:
-        return {gamephase: phase}, 200, {'ContentType': 'application/json'}
+        return {"gamephase": phase}, 200, {'ContentType': 'application/json'}
 
     resp['gamephase'] = phase
 
