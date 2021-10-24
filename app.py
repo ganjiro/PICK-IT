@@ -25,7 +25,7 @@ def checkcode():
     conn = Connection.instance()
 
     conn.set(code, "ACK")
-    time.sleep(1)
+    time.sleep(2)
     resp = conn.get(code)
 
     if resp and resp == "RACK":
@@ -36,6 +36,7 @@ def checkcode():
 
 @app.route('/setcookie', methods=["POST"])
 def set_cookie():
+
     value = request.form.get("code")
 
     res = make_response("<h1>cookie is set</h1>")
