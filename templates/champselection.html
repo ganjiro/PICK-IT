@@ -449,6 +449,36 @@
                         case  'Ending':
                             $("#divpick").hide();
                             $("#select-picker-btn").hide();
+
+                            for (let i = 0; i < 10; i++) {
+                                if (response[i]["pick"] !== 0) {
+                                    document.getElementById("champ" + i).style.borderColor = 'red';
+                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pick"]) {
+                                        document.getElementById("champ" + i).setAttribute("championId", response[i]["pick"]);
+                                        champ = champInfo["keys"][response[i]["pick"]];
+                                        img = champInfo["data"][champ]["image"]["full"];
+                                        document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                    }
+                                } else {
+                                    if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
+                                        if (response[i]["pickIntent"] === 0) {
+                                            document.getElementById("champ" + i).setAttribute("championId", 0);
+                                            document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                        } else {
+                                            document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
+                                            champ = champInfo["keys"][response[i]["pickIntent"]];
+                                            img = champInfo["data"][champ]["image"]["full"];
+                                            document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
+                                        }
+                                    }
+                                }
+                                if (response[i]["inAction"]) {
+                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                } else {
+                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                }
+                            }
+
                             break;
 
                         case 'Matchmaking':
@@ -456,7 +486,7 @@
                             break;
 
                         case 'Gamestart':
-                            window.location.href = '/';
+                            window.location.href = '/waiting';
                             break;
                         default:
                             return;
