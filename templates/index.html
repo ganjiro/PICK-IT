@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
-
+{% block title %}PICK-IT!{% endblock %}
 {% block content %}
 <style>
+    .formAndButton {
+        align-content: center;
+    }
+
+    .formAndButton input {
+        display: inline;
+    }
+
     #computer {
         display: block;
     }
@@ -10,10 +18,12 @@
         #computer {
             display: none;
         }
+
         body {
             background-image: url('static/sfondo_recutted.jpg');
         }
     }
+
     @media screen and (min-width: 768px) {
         body {
             background-image: url('static/sfondo2.jpg');
@@ -22,28 +32,36 @@
 
     body {
         font-family: 'Arial', sans-serif !important;
-        font-palette: light;
-        font-size: 20px;
         background-image: url('static/sfondo.jpg');
     }
 </style>
 
-<br><br>
+<br><br><br>
 
-<h1>{% block title %} Welcome Lol Picker App {% endblock %}</h1>
+<h1 style="font-size:30px; color:white; text-align: center"><strong>PICK-IT!</strong></h1>
 
 <br>
-
-<div class="form-group row">
-    <div class="col-xs-2">
-        <label class="form-label">Sync Code <label id="error-code" style="font-size:12px; color:red;"> </label> </label>
-        <input class="form-control" id="id-input" type="text" style="text-transform:uppercase"
-               style="border-radius: 25px;" style="width:100px; height:30px">
-        <button id="id-bottone" class="btn btn-dark text-center" type="submit"
-                style="width:60px; height:30px; vertical-align: center">OK
+<div class="container ">
+    <!--        <label class="form-label" style="font-size:16px; color:white; text-align: center">Inserisci il codice di sincronizzazione<label id="error-code"-->
+    <!--                                                                                       style="font-size:12px; color:red;"> </label></label>-->
+    <div>
+        <label class="form-label" id="label" style="font-size:18px; color:white; width: 100%; text-align: center">Insert the synchronization code
+            <label id="error-label" style="font-size:12px; color:red;"></label>
+        </label>
+    </div>
+    <br>
+    <div class="formAndButton" align="center">
+        <input class="form-control text-center" id="id-input" type="text" maxlength="6"
+               style="text-transform:uppercase; font-size: 20px; width:135px; height:55px">
+        <button id="id-bottone" class="btn btn-dark text-center" style="font-size: 20px" type="submit">GO
         </button>
     </div>
+
+    <div id="computer">
+        <a href="static/sfondo.jpg" download>download the zip</a>
+    </div>
 </div>
+
 
 <!--<div id="telefono">-->
 <!--    <style>-->
@@ -53,9 +71,6 @@
 <!--    </style>-->
 <!--</div>-->
 
-<div id="computer">
-    <a href="static/sfondo.jpg" download>download the zip</a>
-</div>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -81,52 +96,43 @@
         });
 
         $("#id-bottone").click(function (e) {
-
             var bool = true;
             var code = document.getElementById("id-input").value;
-            if (code.length === 0) {
-                document.getElementById("error-code").innerHTML = "Password errata, ritenta!";
-                bool = false;
-            } else
-                document.getElementById("error-code").innerHTML = "";
+            $.ajax({
+                type: "POST",
+                url: "/code",
+                data: {id: code},
+                dataType: 'JSON',
+                success: function (response) {
+                    console.log("ok")
+                    if (response["success"]) {
+                        document.getElementById("error-label").innerHTML = "";
+                        $.ajax({
+                            type: "POST",
+                            url: "/setcookie",
+                            data: {code: code},
+                            dataType: 'JSON',
+                            success: function () {
+                                console.log("ok")
+                            },
+                            error: function () {
+                                console.log("errore")
+                            }
 
-            if (bool) {
-                $.ajax({
-                    type: "POST",
-                    url: "/code",
-                    data: {id: code},
-                    dataType: 'JSON',
-                    success: function (response) {
+                        });
+                        window.location.href = '/waiting';
+                    } else {
+                        document.getElementById("error-label").innerHTML = "Password errata, ritenta!";
+                        document.getElementById("error-label").style.color = "red";
 
-                        console.log("ok")
-
-                        if (response["success"]) {
-                            $.ajax({
-                                type: "POST",
-                                url: "/setcookie",
-                                data: {code: code},
-                                dataType: 'JSON',
-                                success: function () {
-
-                                    console.log("SETTATO")
-
-                                },
-                                error: function () {
-                                    console.log("errore")
-                                }
-
-                            });
-                            window.location.href = '/waiting';
-                        }
-
-                    },
-                    error: function (response) {
-                        console.log(response);
                     }
 
-                });
+                },
+                error: function (response) {
+                    console.log(response);
+                }
 
-            }
+            });
 
 
         });

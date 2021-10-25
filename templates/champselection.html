@@ -2,14 +2,40 @@
 {% block title %} Welcome Lol Picker App {% endblock %}
 {% block content %}
 <style>
-    img {
-        border-image: url('static/border.jpg');
+    .ban_image_l {
+        vertical-align: top;
+        width: 45px;
         border-radius: 30px;
+        height: 45px;
+    }
+
+    .ban_image_r {
+        border-radius: 30px;
+        vertical-align: top;
+        float: right;
+        margin-right: 5px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .pick_image_l {
+        border: black;
+        backgroundColor: #991919;
+        width: 80px;
+        height: 80px;
+    }
+
+    .pick_image_r {
+        border: black;
+        backgroundColor: #7f1616;
+        width: 80px;
+        height: 80px;
+        float: right;
     }
 
     body {
         font-family: 'Arial', sans-serif !important;
-        font-size: 20px;
+        /*font-size: 20px;*/
         background-image: url('static/sfondo.jpg');
     }
 </style>
@@ -21,10 +47,12 @@
 
 <div class="row">
     <div id="divpick" align="center">
-        <select id="select-picker" first_time="1" class="js-example-basic-single" style="width:175px; height:30px"
+        <select id="select-picker" first_time="1" class="js-example-basic-single" style="width:112px; height:28px"
                 name="state">
         </select>
-        <button id="select-picker-btn" class="btn btn-dark text-center" type="submit" style="width:60px; height:30px; vertical-align: center">OK</button>
+        <button id="select-picker-btn" class="btn btn-dark text-center" style="font-size: 10px" type="submit"
+                style="width:30px; height:30px;">SUBMIT
+        </button>
     </div>
 </div>
 
@@ -34,76 +62,66 @@
 
     <div class="row">
         <div class="col align-self-start bg-transparent" id="div0">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ0" width="80" height="80">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban0" alt="Example2" width="45" height="45"
-                 style="vertical-align:top">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+                 id="champ0">
+            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban0" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div5">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ5" width="80" height="80" style="float: right;">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban5" alt="Example2" width="45" height="45"
-                 style="vertical-align:top; float: right;">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+                 id="champ5">
+            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban5" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div1">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ1" width="80" height="80">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban1" alt="Example2" width="45" height="45"
-                 style="vertical-align:top">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+                 id="champ1">
+            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban1" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div6">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ6" width="80" height="80" style="float: right;">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban6" alt="Example2" width="45" height="45"
-                 style="vertical-align:top; float: right;">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+                 id="champ6">
+            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban6" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div2">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ2" width="80" height="80">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban2" alt="Example2" width="45" height="45"
-                 style="vertical-align:top">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+                 id="champ2">
+            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban2" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div7">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ7" width="80" height="80" style="float: right;">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban7" alt="Example2" width="45" height="45"
-                 style="vertical-align:top; float: right;">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+                 id="champ7">
+            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban7" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div3">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ3" width="80" height="80">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban3" alt="Example2" width="45" height="45"
-                 style="vertical-align:top">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+                 id="champ3">
+            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban3" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div8">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ8" width="80" height="80" style="float: right;">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban8" alt="Example2" width="45" height="45"
-                 style="vertical-align:top; float: right;">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+                 id="champ8">
+            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban8" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div4">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ4" width="80" height="80">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban4" alt="Example2" width="45" height="45"
-                 style="vertical-align:top">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+                 id="champ4">
+            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban4" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div9">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail"
-                 alt="..." championid="0" id="champ9" width="80" height="80" style="float: right;">
-            <img src="https://via.placeholder.com/65" banid="0" id="ban9" alt="Example2" width="45" height="45"
-                 style="vertical-align:top; float: right;">
+            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+                 id="champ9">
+            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban9" alt="?">
         </div>
     </div>
 
@@ -127,18 +145,16 @@
             data: {},
             dataType: 'JSON',
             success: function (response) {
-                console.log("ciao anico sono qui 0");
                 console.log(response['gamephase']);
-                console.log("ciao anico sono qui 1");
                 for (let i = 0; i < 10; i++) {
-                    console.log("ciao anico sono qui for");
                     if (response[i]['me']) {
                         if (i <= 4) {
-                            console.log("ciao anico sono qui if");
+                            // TODO fix border color
+                            document.getElementById('champ' + i).style.backgroundColor = "#0d6efd";
+
                             document.getElementById('l_team0').innerHTML = "My Team"
                             document.getElementById('l_team1').innerHTML = "Enemy Team"
                         } else {
-                            console.log("ciao anico sono qui else");
                             document.getElementById('l_team0').innerHTML = "Enemy Team"
                             document.getElementById('l_team1').innerHTML = "My Team"
                         }
@@ -262,9 +278,13 @@
                                     }
                                 }
                                 if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
                                 } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    if (response[i]['me']) {lil
+                                        document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                    } else {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#000000";
+                                    }
                                 }
                             }
                             break;
@@ -296,9 +316,13 @@
                                     }
                                 }
                                 if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
                                 } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    if (response[i]['me']) {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                    } else {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#000000";
+                                    }
                                 }
                             }
                             break;
@@ -340,9 +364,13 @@
                                     }
                                 }
                                 if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
                                 } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    if (response[i]['me']) {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                    } else {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#000000";
+                                    }
                                 }
                             }
                             break;
@@ -406,9 +434,13 @@
                                     }
                                 }
                                 if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
                                 } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    if (response[i]['me']) {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                    } else {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#000000";
+                                    }
                                 }
                             }
                             break;
@@ -439,9 +471,13 @@
                                     }
                                 }
                                 if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
                                 } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    if (response[i]['me']) {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                    } else {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#000000";
+                                    }
                                 }
                             }
                             break;
@@ -473,9 +509,13 @@
                                     }
                                 }
                                 if (response[i]["inAction"]) {
-                                    document.getElementById("div" + i).style.backgroundColor = 'green';
+                                    document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
                                 } else {
-                                    document.getElementById("div" + i).style.backgroundColor = 'white';
+                                    if (response[i]['me']) {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                    } else {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#000000";
+                                    }
                                 }
                             }
 

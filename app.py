@@ -1,9 +1,10 @@
 import ast
-import time
 import datetime
+import json
+import time
 
 from flask import Flask, render_template, request, make_response
-import json
+
 from redis_connector import Connection
 
 app = Flask(__name__)
@@ -25,18 +26,17 @@ def checkcode():
     conn = Connection.instance()
 
     conn.set(code, "ACK")
-    time.sleep(2)
+    time.sleep(1)
     resp = conn.get(code)
-    ret_value = True #todo remove
-    #if resp and resp == "RACK":
-    #    ret_value = True
+    # ret_value = True
+    if resp and resp == "RACK":
+        ret_value = True
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
 
 @app.route('/setcookie', methods=["POST"])
 def set_cookie():
-
     value = request.form.get("code")
 
     res = make_response("<h1>cookie is set</h1>")
@@ -115,7 +115,6 @@ def getcookie():
 @app.route('/check_gamestatus', methods=["POST"])
 def check_gamestatus():
     conn = Connection.instance()
-
 
     code = request.cookies.get('code')
     phase = conn.get(str(code) + "_gamephase")
