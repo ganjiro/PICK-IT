@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def index():
-    url = "redis://:p975d2dba3a5c75f5d5fc51a412f07722e4be526860ae94609067b37cd08adb7d@ec2-54-156-199-127.compute-1.amazonaws.com:17169"
+    url = "redis://:p975d2dba3a5c75f5d5fc51a412f07722e4be526860ae94609067b37cd08adb7d@ec2-54-208-105-45.compute-1.amazonaws.com:25149"
     Connection.instance().set_url(url)
 
     return render_template('index.html')
