@@ -22,13 +22,13 @@ def index():
 def checkcode():
     ret_value = False
 
-    code = request.form.get("id")
+    code = request.form.get("id").upper()
     conn = Connection.instance()
 
     conn.set(code, "ACK")
     time.sleep(1)
     resp = conn.get(code)
-    # ret_value = True
+
     if resp and resp == "RACK":
         ret_value = True
 
@@ -37,7 +37,7 @@ def checkcode():
 
 @app.route('/setcookie', methods=["POST"])
 def set_cookie():
-    value = request.form.get("code")
+    value = request.form.get("code").upper()
 
     res = make_response("<h1>cookie is set</h1>")
     expire_date = datetime.datetime.now()
@@ -66,7 +66,7 @@ def lockchamp():
 def check_pickable():
     conn = Connection.instance()
 
-    code = request.cookies.get('code')
+    code = request.cookies.get('code').upper()
 
     resp = conn.get(str(code) + "_pickable")
 
@@ -83,7 +83,7 @@ def check_gamestart():
     ret_value = False
     conn = Connection.instance()
 
-    code = request.cookies.get('code')
+    code = request.cookies.get('code').upper()
     resp = conn.get(str(code) + "_gamephase")
 
     if resp and resp != "Matchmaking":
@@ -104,7 +104,7 @@ def champselection():
 
 @app.route('/getcookie', methods=["POST"])
 def getcookie():
-    code = request.cookies.get('code')
+    code = request.cookies.get('code').upper()
 
     if not code:
         return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}
@@ -116,7 +116,7 @@ def getcookie():
 def check_gamestatus():
     conn = Connection.instance()
 
-    code = request.cookies.get('code')
+    code = request.cookies.get('code').upper()
     phase = conn.get(str(code) + "_gamephase")
 
     resp = conn.get(str(code) + "_gamestatus")
