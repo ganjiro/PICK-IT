@@ -89,6 +89,9 @@ def check_gamestart():
     if resp and resp != "Matchmaking":
         ret_value = True
 
+    if resp == 'Closed':
+        return render_template('index.html')
+
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
 
 

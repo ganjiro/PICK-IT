@@ -233,6 +233,9 @@
                 dataType: 'JSON',
                 success: function (response) {
 
+                     if (response['gamephase']==='Closed')
+                          window.location.href = '/';
+
                     document.getElementById("id-timer").innerHTML = response["time"];
                     console.log(response['messageId'])
                     console.log(document.getElementById("id-timer").getAttribute("messageId"))
@@ -551,6 +554,10 @@
                             case 'Gamestart':
                                 window.location.href = '/waiting';
                                 break;
+
+                            case 'Closed':
+                                    window.location.href = '/';
+                                    break;
                             default:
                                 return;
                         }
