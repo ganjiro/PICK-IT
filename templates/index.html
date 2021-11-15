@@ -20,19 +20,19 @@
         }
 
         body {
-            background-image: url('static/sfondo_recutted.jpg');
+            background: url('static/background mobile/home_telefono.jpg') no-repeat;
         }
     }
 
     @media screen and (min-width: 768px) {
         body {
-            background-image: url('static/sfondo2.jpg');
+            background: url('static/background pc/home_computer.jpg') no-repeat;
         }
     }
 
     body {
         font-family: 'Arial', sans-serif !important;
-        background-image: url('static/sfondo.jpg');
+        /*background-image: url('static/sfondo.jpg');*/
     }
 </style>
 
@@ -41,11 +41,10 @@
 <h1 style="font-size:30px; color:white; text-align: center"><strong>PICK-IT!</strong></h1>
 
 <br>
-<div class="container ">
-    <!--        <label class="form-label" style="font-size:16px; color:white; text-align: center">Inserisci il codice di sincronizzazione<label id="error-code"-->
-    <!--                                                                                       style="font-size:12px; color:red;"> </label></label>-->
+<div class="container" id="bg">
     <div>
-        <label class="form-label" id="label" style="font-size:18px; color:white; width: 100%; text-align: center">Insert the synchronization code
+        <label class="form-label" id="label" style="font-size:18px; color:white; width: 100%; text-align: center">Insert
+            the synchronization code
             <label id="error-label" style="font-size:12px; color:red;"></label>
         </label>
     </div>
@@ -57,20 +56,13 @@
         </button>
     </div>
 
+    <br><br>
+
     <div id="computer">
+        <label>If it is your first time, just download the installer from the link below</label>
         <a href="static/sfondo.jpg" download>download the zip</a>
     </div>
 </div>
-
-
-<!--<div id="telefono">-->
-<!--    <style>-->
-<!--        body {-->
-<!--            background-image: url('static/sfondo_recutted.jpg');-->
-<!--        }-->
-<!--    </style>-->
-<!--</div>-->
-
 
 <script type="text/javascript">
     $(document).ready(function () {

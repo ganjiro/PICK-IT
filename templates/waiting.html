@@ -6,30 +6,35 @@
     #computer {
         display: block;
     }
+
     @media screen and (max-width: 768px) {
         #computer {
             display: none;
         }
+
         body {
-            background-image: url('static/sfondo_recutted.jpg');
+            background: url('static/background mobile/loading_telefono.jpg') no-repeat;
         }
     }
+
     @media screen and (min-width: 768px) {
         body {
-            background-image: url('static/sfondo2.jpg');
+            background: url('static/background pc/loading_computer.jpg') no-repeat;
         }
     }
+
     body {
-        font-family: 'Arial', sans-serif !important;}
+        font-family: 'Arial', sans-serif !important;
+    }
 </style>
 
 <br><br><br><br><br><br>
 <h1 style="font-size:30px; color:white; text-align: center"><strong>Waiting for match to start...</strong></h1>
 <br>
 <div class="d-flex justify-content-center">
-  <div class="spinner-border" role="status" style="color: white; width: 5rem; height: 5rem; border-width: 7px">
-    <span class="sr-only"></span>
-  </div>
+    <div class="spinner-border" role="status" style="color: white; width: 5rem; height: 5rem; border-width: 7px">
+        <span class="sr-only"></span>
+    </div>
 </div>
 
 
