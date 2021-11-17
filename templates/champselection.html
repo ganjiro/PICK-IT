@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} Welcome Lol Picker App {% endblock %}
 {% block content %}
+<link rel="shortcut icon" href="http://lol-picker-hci.herokuapp.com/static/icon2.ico" />
     <style>
         .ban_image_l {
             vertical-align: top;
@@ -284,8 +285,9 @@
                                             if (response[i]["pickIntent"] === 0) {
 
                                                 document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                if (response[i][position]!=="") {
-                                                    document.getElementById("champ" + i).src = "static/lanes/".concat(response[i][position]).concat(".png");
+
+                                                if (response[i]["position"]!=="") {
+                                                    document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 }else{
                                                     document.getElementById("champ" + i).src = "https://via.placeholder.com/65";
                                                 }
