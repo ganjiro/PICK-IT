@@ -289,7 +289,7 @@
                                                 if (response[i]["position"]!=="") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 }else{
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/65";
+                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
                                                 }
 
                                             } else {
@@ -311,7 +311,13 @@
                                         if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
                                             if (response[i]["pickIntent"] === 0) {
                                                 document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+
+                                                if (response[i]["position"]!=="") {
+                                                    document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
+                                                }else{
+                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                }
+
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
                                                 champ = champInfo["keys"][response[i]["pickIntent"]];
@@ -354,7 +360,11 @@
                                         if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
                                             if (response[i]["pickIntent"] === 0) {
                                                 document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                if (response[i]["position"]!=="") {
+                                                    document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
+                                                }else{
+                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
                                                 champ = champInfo["keys"][response[i]["pickIntent"]];
@@ -401,7 +411,11 @@
                                             if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
                                                 if (response[i]["pickIntent"] === 0) {
                                                     document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    if (response[i]["position"]!=="") {
+                                                        document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
+                                                    }else{
+                                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    }
                                                 } else {
                                                     document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
                                                     champ = champInfo["keys"][response[i]["pickIntent"]];
@@ -482,7 +496,11 @@
                                             if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
                                                 if (response[i]["pickIntent"] === 0) {
                                                     document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    if (response[i]["position"]!=="") {
+                                                        document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
+                                                    }else{
+                                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    }
                                                 } else {
                                                     document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
                                                     champ = champInfo["keys"][response[i]["pickIntent"]];
@@ -519,7 +537,11 @@
                                             if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
                                                 if (response[i]["pickIntent"] === 0) {
                                                     document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    if (response[i]["position"]!=="") {
+                                                        document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
+                                                    }else{
+                                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    }
                                                 } else {
                                                     document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
                                                     champ = champInfo["keys"][response[i]["pickIntent"]];
@@ -558,7 +580,11 @@
                                             if (document.getElementById("champ" + i).getAttribute("championId") !== response[i]["pickIntent"]) {
                                                 if (response[i]["pickIntent"] === 0) {
                                                     document.getElementById("champ" + i).setAttribute("championId", 0);
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    if (response[i]["position"]!=="") {
+                                                        document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
+                                                    }else{
+                                                        document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    }
                                                 } else {
                                                     document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
                                                     champ = champInfo["keys"][response[i]["pickIntent"]];
