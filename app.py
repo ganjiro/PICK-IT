@@ -81,6 +81,7 @@ def check_pickable():
 @app.route('/check_gamestart', methods=["POST"])
 def check_gamestart():
     ret_value = False
+    closed = False
     conn = Connection.instance()
 
     code = request.cookies.get('code').upper()
@@ -90,9 +91,9 @@ def check_gamestart():
         ret_value = True
 
     if resp == 'Closed':
-        return render_template('index.html')
+        closed = True
 
-    return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'success': ret_value, 'closed': closed}), 200, {'ContentType': 'application/json'}
 
 
 @app.route('/waiting', methods=["GET"])

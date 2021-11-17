@@ -56,9 +56,16 @@
                 dataType: 'JSON',
                 success: function (response) {
                     console.log(response);
-                    if (response["success"]) {
+
+                    if (response["success"]&&!response["closed"]) {
 
                         window.location.href = '/champselection';
+
+                    }
+
+                    if (response["closed"]) {
+
+                        window.location.href = '/';
 
                     }
 
