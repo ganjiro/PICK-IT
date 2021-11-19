@@ -29,7 +29,7 @@ def checkcode():
     time.sleep(1)
     resp = conn.get(code)
 
-    if resp and resp == "RACK":
+    if resp and resp != "ACK":
         ret_value = True
 
     return json.dumps({'success': ret_value}), 200, {'ContentType': 'application/json'}
