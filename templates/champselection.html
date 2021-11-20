@@ -1,3 +1,8 @@
+<!-- blu #063596FF -->
+<!-- celeste #6D9CFBFF -->
+<!-- rosa #EE00FFFF -->
+<!-- chiaro #F56DFFFF -->
+<!-- nero #000000 -->
 {% extends 'base.html' %}
 {% block title %} Welcome Lol Picker App {% endblock %}
 {% block content %}
@@ -19,15 +24,15 @@
     }
 
     .pick_image_l {
-        border: black;
-        backgroundColor: #991919;
+        border: #000000;
+        /*background-color: #000000;*/
         width: 80px;
         height: 80px;
     }
 
     .pick_image_r {
         border: black;
-        backgroundColor: #7f1616;
+        /*background-color: #000000;*/
         width: 80px;
         height: 80px;
         float: right;
@@ -65,7 +70,9 @@
 <br>
 <p align="center">
 
-<div id="id-label-phase" align="center" messageId="-1" style="font-size: 35px" class="display-1 text-white"></div></p>
+<div id="id-label-phase" align="center" messageId="-1" style="font-size: 35px" class="display-1 text-white">
+
+</div>
 
 <div class="progress col-md-6 offset-md-3" id="progress-bar-div">
     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
@@ -82,8 +89,8 @@
         <select id="select-picker" first_time="1" class="js-example-basic-single" style="width:112px; height:28px"
                 name="state">
         </select>
-        <button id="select-picker-btn" class="btn btn-dark text-center" style="font-size: 10px" type="submit"
-                style="width:30px; height:30px;">SUBMIT
+        <button id="select-picker-btn" class="btn btn-dark text-center" style="font-size: 10px; width:30px;
+        height:30px;" type="submit">SUBMIT
         </button>
     </div>
 </div>
@@ -94,13 +101,13 @@
 
     <div class="row">
         <div class="col align-self-start bg-transparent" id="div0">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
                  championid="0"
                  id="champ0">
             <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban0" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div5">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
                  championid="0"
                  id="champ5">
             <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban5" alt="?">
@@ -109,13 +116,13 @@
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div1">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
                  championid="0"
                  id="champ1">
             <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban1" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div6">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
                  championid="0"
                  id="champ6">
             <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban6" alt="?">
@@ -124,13 +131,13 @@
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div2">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
                  championid="0"
                  id="champ2">
             <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban2" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div7">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
                  championid="0"
                  id="champ7">
             <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban7" alt="?">
@@ -139,13 +146,13 @@
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div3">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
                  championid="0"
                  id="champ3">
             <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban3" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div8">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
                  championid="0"
                  id="champ8">
             <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban8" alt="?">
@@ -154,13 +161,13 @@
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div4">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
                  championid="0"
                  id="champ4">
             <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban4" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div9">
-            <img src="static/placeholder/enemy-champion-laceholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
                  championid="0"
                  id="champ9">
             <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban9" alt="?">
@@ -190,16 +197,17 @@
             success: function (response) {
                 console.log(response['gamephase']);
                 for (let i = 0; i < 10; i++) {
+                    console.log("stampami questa i: ", i)
                     if (response[i]['me']) {
                         if (i <= 4) {
                             // TODO fix border color
-                            document.getElementById('champ' + i).style.backgroundColor = "#ED00FFFF";
+                            document.getElementById('champ' + i).style.backgroundColor = "#ea00ff";
 
-                            document.getElementById('l_team0').innerHTML = "My Team"
-                            document.getElementById('l_team1').innerHTML = "Enemy Team"
+                            document.getElementById('l_team0').innerHTML = "My Team";
+                            document.getElementById('l_team1').innerHTML = "Enemy Team";
                         } else {
-                            document.getElementById('l_team0').innerHTML = "Enemy Team"
-                            document.getElementById('l_team1').innerHTML = "My Team"
+                            document.getElementById('l_team0').innerHTML = "Enemy Team";
+                            document.getElementById('l_team1').innerHTML = "My Team";
                         }
                     }
                 }
@@ -277,9 +285,9 @@
                         }
                     }
 
-                    if (parseInt(document.getElementById("id-label-phase").getAttribute("messageId")) != parseInt(response['messageId'])) {
+                    if (parseInt(document.getElementById("id-label-phase").getAttribute("messageId")) !== parseInt(response['messageId'])) {
 
-                        console.log("sto facendo qualcosa")
+                        // console.log("sto facendo qualcosa")
                         document.getElementById("id-label-phase").setAttribute("messageId", response['messageId'])
 
                         switch (response['gamephase']) {
@@ -299,7 +307,7 @@
                                             if (response[i]["position"] !== "") {
                                                 document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                             } else {
-                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                             }
 
                                         } else {
@@ -327,7 +335,7 @@
                                             if (response[i]["position"] !== "") {
                                                 document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                             } else {
-                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                             }
 
                                         } else {
@@ -353,10 +361,14 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#063596FF";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#ED00FFFF";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -375,7 +387,7 @@
                                             if (response[i]["position"] !== "") {
                                                 document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                             } else {
-                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                             }
                                         } else {
                                             document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -396,10 +408,14 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#063596FF";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#ED00FFFF";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -427,7 +443,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -449,10 +465,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#063596FF";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#ED00FFFF";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -514,7 +540,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -525,10 +551,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#063596FF";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0154d4";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -556,7 +592,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -567,10 +603,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#063596";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#ED00FFFF";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -581,7 +627,7 @@
 
                             case  'Ending':
                                 document.getElementById("id-label-phase").innerHTML = "Ending...";
-                                document.getElementById("select-picker-btn").innerHTML="Waiting for match to start...";
+                                document.getElementById("select-picker-btn").innerHTML = "Waiting for match to start...";
 
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
@@ -602,7 +648,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-laceholder.jpg";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -613,10 +659,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#063596FF";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#ed00ff";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
