@@ -259,11 +259,10 @@
                 data: {},
                 dataType: 'JSON',
                 success: function (response) {
-
+                    console.log(response)
                     if (response['gamephase'] === 'Closed')
                         window.location.href = '/';
 
-                    console.log(response["timeBar"]);
                     if (response["timeBar"] === -1) {
                         $("#progress-bar-div").hide();
                     } else {
@@ -357,7 +356,6 @@
                                         document.getElementById("champ" + i).style.backgroundColor = "#063596FF";
                                     } else {
                                         if (response[i]['me']) {
-                                            lil
                                             document.getElementById("champ" + i).style.backgroundColor = "#ED00FFFF";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
@@ -539,7 +537,7 @@
                                 break;
 
                             case 'Picking':
-                                document.getElementById("select-picker-btn").innerHTML = "Picking...";
+                                document.getElementById("id-label-phase").innerHTML = "Picking...";
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
                                 for (let i = 0; i < 10; i++) {
@@ -582,6 +580,7 @@
                                 break;
 
                             case  'Ending':
+                                document.getElementById("id-label-phase").innerHTML = "Ending...";
                                 document.getElementById("select-picker-btn").innerHTML="Waiting for match to start...";
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
@@ -630,7 +629,12 @@
                                 break;
 
                             case 'Gamestart':
-                                window.location.href = '/waiting';
+                                if (document.getElementById("id-label-phase").innerHTML !== "Game is Starting...") {
+                                    document.getElementById("id-label-phase").innerHTML = "Game is Starting...";
+                                    setTimeout(function () {
+                                        window.location.href = '/waiting';
+                                    }, 10000);
+                                }
                                 break;
 
                             case 'Closed':
