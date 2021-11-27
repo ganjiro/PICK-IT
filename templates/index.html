@@ -2,6 +2,12 @@
 {% block title %}PICK-IT!{% endblock %}
 {% block content %}
 <style>
+    #info-bottone {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+    }
+
     .formAndButton {
         align-content: center;
     }
@@ -57,19 +63,47 @@
         </label>
     </div>
     <br>
-    <div class="formAndButton" align="center">
-        <input class="form-control text-center" id="id-input" type="text" maxlength="6"
-               style="text-transform:uppercase; font-size: 20px; width:135px; height:55px">
-        <button id="id-bottone" class="btn btn-dark text-center" style="font-size: 20px" type="submit">GO
-        </button>
-    </div>
-
+    <table class="formAndButton" align="center" style="height: 100px;">
+        <tbody>
+        <tr>
+            <td class="align-baseline"><input class="form-control text-center" id="id-input" type="text" maxlength="6"
+                                              style="text-transform:uppercase; font-size: 20px; width:135px; height:55px">
+            </td>
+            <td class="align-top">
+                <button id="id-bottone" class="btn btn-dark text-center" style="font-size: 20px; height: 55px" type="submit">GO
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     <br><br>
-
     <div id="computer">
-        <label>If it is your first time, just download the installer from the link below</label>
-        <a href="static/sfondo.jpg" download>download the zip</a>
+        <!--        <div class="card" style="width: 18rem;border-radius: 15px; margin: auto">-->
+        <!--            <img class="card-img-top" src="/static/favicon.ico" width="100px" height="270px" alt="card image">-->
+        <!--            <div class="card-body">-->
+        <!--                <h5 class="card-title">Card title</h5>-->
+        <!--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+        <!--                    card's content.</p>-->
+        <!--                <a href="static/sfondo.jpg" download> download the zip</a>-->
+        <!--            </div>-->
+        <!-- style="width: 18rem; border-radius: 30px; margin: auto -->
+        <div class="card" style="width: 500px; border-radius: 30px; margin: auto">
+            <div class="card-body" style="text-align: center;">
+                <h5 class="card-title">PICK-IT!</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Just pick it from anywhere!</h6>
+                <p class="card-text">If it is your first time, and your browsing from your pc, just
+                    <a href="static/PICK_IT!.zip" download>download</a> the executable.</p>
+                <p class="card-text">If it is your first time, and your browsing from your smartphone, just install
+                    the web-appp in your home</p>If you need an help, just watch this-awesone-masterpiece-video
+                tutorial:
+                <iframe width="420" height="315"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
     </div>
+    <!--        <label>If it is your first time, just download the installer from the link below</label>-->
+    <!--        <a href="static/sfondo.jpg" download>download the zip</a>-->
 </div>
 
 <script type="text/javascript">

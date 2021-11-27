@@ -1,3 +1,8 @@
+<!-- blu #063596FF -->
+<!-- celeste #6D9CFBFF -->
+<!-- rosa #EE00FFFF -->
+<!-- chiaro #F56DFFFF -->
+<!-- nero #000000 -->
 {% extends 'base.html' %}
 {% block title %} Welcome Lol Picker App {% endblock %}
 {% block content %}
@@ -19,15 +24,15 @@
     }
 
     .pick_image_l {
-        border: black;
-        backgroundColor: #991919;
+        border: #000000;
+        /*background-color: #000000;*/
         width: 80px;
         height: 80px;
     }
 
     .pick_image_r {
         border: black;
-        backgroundColor: #7f1616;
+        /*background-color: #000000;*/
         width: 80px;
         height: 80px;
         float: right;
@@ -65,7 +70,9 @@
 <br>
 <p align="center">
 
-<div id="id-timer" align="center" messageId="-1" style="font-size: 35px" class="display-1 text-white"></div></p>
+<div id="id-label-phase" align="center" messageId="-1" style="font-size: 35px" class="display-1 text-white">
+
+</div>
 
 <div class="progress col-md-6 offset-md-3" id="progress-bar-div">
     <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
@@ -82,8 +89,8 @@
         <select id="select-picker" first_time="1" class="js-example-basic-single" style="width:112px; height:28px"
                 name="state">
         </select>
-        <button id="select-picker-btn" class="btn btn-dark text-center" style="font-size: 10px" type="submit"
-                style="width:30px; height:30px;">SUBMIT
+        <button id="select-picker-btn" class="btn btn-dark text-center" style="font-size: 10px; width: auto;
+        height:30px;" type="submit">SUBMIT
         </button>
     </div>
 </div>
@@ -94,66 +101,76 @@
 
     <div class="row">
         <div class="col align-self-start bg-transparent" id="div0">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+                 championid="0"
                  id="champ0">
-            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban0" alt="?">
+            <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban0" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div5">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+                 championid="0"
                  id="champ5">
-            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban5" alt="?">
+            <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban5" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div1">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+                 championid="0"
                  id="champ1">
-            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban1" alt="?">
+            <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban1" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div6">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+                 championid="0"
                  id="champ6">
-            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban6" alt="?">
+            <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban6" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div2">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+                 championid="0"
                  id="champ2">
-            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban2" alt="?">
+            <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban2" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div7">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+                 championid="0"
                  id="champ7">
-            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban7" alt="?">
+            <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban7" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div3">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+                 championid="0"
                  id="champ3">
-            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban3" alt="?">
+            <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban3" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div8">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+                 championid="0"
                  id="champ8">
-            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban8" alt="?">
+            <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban8" alt="?">
         </div>
     </div>
 
     <div class="row mt-1">
         <div class="col align-self-start bg-transparent" id="div4">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_l" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_l" alt="?"
+                 championid="0"
                  id="champ4">
-            <img class="ban_image_l" src="https://via.placeholder.com/65" banid="0" id="ban4" alt="?">
+            <img class="ban_image_l" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban4" alt="?">
         </div>
         <div class="col align-self-end bg-transparent" id="div9">
-            <img src="https://via.placeholder.com/120" class="img-thumbnail pick_image_r" alt="?" championid="0"
+            <img src="static/placeholder/enemy-champion-placeholder.jpg" class="img-thumbnail pick_image_r" alt="?"
+                 championid="0"
                  id="champ9">
-            <img class="ban_image_r" src="https://via.placeholder.com/65" banid="0" id="ban9" alt="?">
+            <img class="ban_image_r" src="static/placeholder/ban-pick-placeholder.png" banid="0" id="ban9" alt="?">
         </div>
     </div>
 
@@ -180,16 +197,17 @@
             success: function (response) {
                 console.log(response['gamephase']);
                 for (let i = 0; i < 10; i++) {
+                    console.log("stampami questa i: ", i)
                     if (response[i]['me']) {
                         if (i <= 4) {
                             // TODO fix border color
-                            document.getElementById('champ' + i).style.backgroundColor = "#0d6efd";
+                            document.getElementById('champ' + i).style.backgroundColor = "#ea00ff";
 
-                            document.getElementById('l_team0').innerHTML = "My Team"
-                            document.getElementById('l_team1').innerHTML = "Enemy Team"
+                            document.getElementById('l_team0').innerHTML = "My Team";
+                            document.getElementById('l_team1').innerHTML = "Enemy Team";
                         } else {
-                            document.getElementById('l_team0').innerHTML = "Enemy Team"
-                            document.getElementById('l_team1').innerHTML = "My Team"
+                            document.getElementById('l_team0').innerHTML = "Enemy Team";
+                            document.getElementById('l_team1').innerHTML = "My Team";
                         }
                     }
                 }
@@ -253,7 +271,6 @@
                     if (response['gamephase'] === 'Closed')
                         window.location.href = '/';
 
-                    console.log(response["timeBar"]);
                     if (response["timeBar"] === -1) {
                         $("#progress-bar-div").hide();
                     } else {
@@ -268,14 +285,15 @@
                         }
                     }
 
-                    if (parseInt(document.getElementById("id-timer").getAttribute("messageId")) != parseInt(response['messageId'])) {
+                    if (parseInt(document.getElementById("id-label-phase").getAttribute("messageId")) !== parseInt(response['messageId'])) {
 
-                        console.log("sto facendo qualcosa")
-                        document.getElementById("id-timer").setAttribute("messageId", response['messageId'])
+                        // console.log("sto facendo qualcosa")
+                        document.getElementById("id-label-phase").setAttribute("messageId", response['messageId'])
 
                         switch (response['gamephase']) {
 
                             case 'DeclaringChamp':
+                                document.getElementById("id-label-phase").innerHTML = "Waiting...";
                                 console.log("declaring champion");
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
@@ -289,7 +307,7 @@
                                             if (response[i]["position"] !== "") {
                                                 document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                             } else {
-                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                             }
 
                                         } else {
@@ -305,6 +323,8 @@
                                 break;
 
                             case  'yourTurnToBan':
+                                document.getElementById("id-label-phase").innerHTML = "Time to Ban...";
+                                document.getElementById("select-picker-btn").innerHTML = "BAN";
                                 $("#divpick").show();
                                 $("#select-picker-btn").show();
                                 for (let i = 0; i < 10; i++) {
@@ -315,7 +335,7 @@
                                             if (response[i]["position"] !== "") {
                                                 document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                             } else {
-                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                             }
 
                                         } else {
@@ -331,7 +351,7 @@
                                         }
                                         if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
                                             document.getElementById("ban" + i).setAttribute("banId", 0);
-                                            document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
+                                            document.getElementById("ban" + i).src = "static/placeholder/ban-pick-placeholder.png";
                                         } else {
                                             document.getElementById("ban" + i).setAttribute("banId", response[i]["ban"]);
                                             champ = champInfo["keys"][response[i]["ban"]];
@@ -341,11 +361,14 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            lil
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -354,6 +377,7 @@
                                 break;
 
                             case  'Banning':
+                                document.getElementById("id-label-phase").innerHTML = "Banning...";
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
                                 for (let i = 0; i < 10; i++) {
@@ -363,7 +387,7 @@
                                             if (response[i]["position"] !== "") {
                                                 document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                             } else {
-                                                document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                             }
                                         } else {
                                             document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -375,7 +399,7 @@
                                     if (document.getElementById("ban" + i).getAttribute("banId") !== response[i]["ban"]) {
                                         if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
                                             document.getElementById("ban" + i).setAttribute("banId", 0);
-                                            document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
+                                            document.getElementById("ban" + i).src = "static/placeholder/ban-pick-placeholder.png";
                                         } else {
                                             document.getElementById("ban" + i).setAttribute("banId", response[i]["ban"]);
                                             champ = champInfo["keys"][response[i]["ban"]];
@@ -384,10 +408,14 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -396,6 +424,7 @@
                                 break;
 
                             case 'PickPhase':
+                                document.getElementById("id-label-phase").innerHTML = "Waiting your turn...";
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
                                 for (let i = 0; i < 10; i++) {
@@ -414,7 +443,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -427,7 +456,7 @@
                                     if (document.getElementById("ban" + i).getAttribute("banId") !== response[i]["ban"]) {
                                         if (response[i]["ban"] === -1 || response[i]["ban"] === 0) {
                                             document.getElementById("ban" + i).setAttribute("banId", 0);
-                                            document.getElementById("ban" + i).src = "https://via.placeholder.com/65";
+                                            document.getElementById("ban" + i).src = "static/placeholder/ban-pick-placeholder.png";
                                         } else {
                                             document.getElementById("ban" + i).setAttribute("banId", response[i]["ban"]);
                                             champ = champInfo["keys"][response[i]["ban"]];
@@ -436,10 +465,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -448,6 +487,8 @@
                                 break;
 
                             case 'yourTurnToPick':
+                                document.getElementById("id-label-phase").innerHTML = "Time to Pick...";
+                                document.getElementById("select-picker-btn").innerHTML = "PICK";
                                 if (document.getElementById("select-picker").getAttribute("first_time") === "1") {
                                     console.log("FIRST TIME");
                                     $("#divpick").show();
@@ -499,7 +540,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -510,10 +551,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -522,6 +573,7 @@
                                 break;
 
                             case 'Picking':
+                                document.getElementById("id-label-phase").innerHTML = "Picking...";
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
                                 for (let i = 0; i < 10; i++) {
@@ -540,7 +592,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -551,10 +603,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -564,6 +626,9 @@
                                 break;
 
                             case  'Ending':
+                                document.getElementById("id-label-phase").innerHTML = "Ending...";
+                                document.getElementById("select-picker-btn").innerHTML = "Waiting for match to start...";
+
                                 $("#divpick").hide();
                                 $("#select-picker-btn").hide();
 
@@ -583,7 +648,7 @@
                                                 if (response[i]["position"] !== "") {
                                                     document.getElementById("champ" + i).src = "static/lanes/".concat(response[i]["position"]).concat(".png");
                                                 } else {
-                                                    document.getElementById("champ" + i).src = "https://via.placeholder.com/120";
+                                                    document.getElementById("champ" + i).src = "static/placeholder/enemy-champion-placeholder.jpg";
                                                 }
                                             } else {
                                                 document.getElementById("champ" + i).setAttribute("championId", response[i]["pickIntent"]);
@@ -594,10 +659,20 @@
                                         }
                                     }
                                     if (response[i]["inAction"]) {
-                                        document.getElementById("champ" + i).style.backgroundColor = "#ffcf00";
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#5286ff";
+                                        }
+                                    } else if (response[i]["pick"] !== 0) {
+                                        if (response[i]['me']) {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#790087";
+                                        } else {
+                                            document.getElementById("champ" + i).style.backgroundColor = "#002683";
+                                        }
                                     } else {
                                         if (response[i]['me']) {
-                                            document.getElementById("champ" + i).style.backgroundColor = "#0d6efd";
+                                            document.getElementById("champ" + i).style.backgroundColor = "#ea00ff";
                                         } else {
                                             document.getElementById("champ" + i).style.backgroundColor = "#000000";
                                         }
@@ -611,7 +686,12 @@
                                 break;
 
                             case 'Gamestart':
-                                window.location.href = '/waiting';
+                                if (document.getElementById("id-label-phase").innerHTML !== "Game is Starting...") {
+                                    document.getElementById("id-label-phase").innerHTML = "Game is Starting...";
+                                    setTimeout(function () {
+                                        window.location.href = '/waiting';
+                                    }, 10000);
+                                }
                                 break;
 
                             case 'Closed':
