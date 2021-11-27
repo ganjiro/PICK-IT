@@ -1,4 +1,5 @@
 import redis
+import os
 
 
 class Singleton:
@@ -43,13 +44,7 @@ class Singleton:
 @Singleton
 class Connection:
     def __init__(self):
-        self._r = None
-
-    def set_url(self, url):
-
-        self._r = redis.Redis(host=url.hostname, port=url.port, username=url.username, password=url.password, ssl=True,
-                        ssl_cert_reqs=None)
-
+        self._r = redis.from_url(os.environ.get("REDIS_URL"))
 
     def get(self, code):
         resp = self._r.get(code)

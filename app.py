@@ -15,9 +15,6 @@ app = Flask(__name__)
 @app.route('/', methods=["GET"])
 def index():
 
-    url = urlparse(os.environ.get("REDIS_URL"))
-    Connection.instance().set_url(url)
-
     return render_template('index.html')
 
 
