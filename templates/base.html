@@ -5,15 +5,17 @@
     #info-bottone {
         position: absolute;
         top: 10px;
-        right: 5px;
+        right: 10px;
+        size: auto;
+        border-radius: 20px;
     }
 </style>
 <head>
     <div>
         <button id="info-bottone" type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="bottom"
-                title="Need an hand?" style="color: white; border-radius: 30px">
+                title="Need an hand?" style="color: white;">
             <a style="text-decoration:none; color: white"
-               href="https://github.com/ganjiro/lol_picker_web_app/blob/master/README.md">?</a>
+               href="https://github.com/ganjiro/lol_picker_web_app/blob/master/README.md" target="_blank">?</a>
         </button>
     </div>
     <!--    XXX per mettere l'header nero-->
@@ -57,8 +59,11 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+
 <script type="text/javascript">
-    $('#info-bottone').tooltip(options)
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
