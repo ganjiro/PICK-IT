@@ -10,7 +10,8 @@
 </style>
 <head>
     <div>
-        <button id="info-bottone" type="button" class="btn btn-dark" style="color: white; border-radius: 30px">
+        <button id="info-bottone" type="button" class="btn btn-dark" data-toggle="tooltip" data-placement="bottom"
+                title="Need an hand?" style="color: white; border-radius: 30px">
             <a style="text-decoration:none; color: white"
                href="https://github.com/ganjiro/lol_picker_web_app/blob/master/README.md">?</a>
         </button>
@@ -57,6 +58,8 @@
         crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+    $('#info-bottone').tooltip(options)
+
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
             navigator.serviceWorker
