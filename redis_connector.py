@@ -1,5 +1,6 @@
-import redis
 import os
+
+import redis
 
 
 class Singleton:

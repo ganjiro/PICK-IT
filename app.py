@@ -3,7 +3,6 @@ import datetime
 import json
 import os
 import time
-from urllib.parse import urlparse
 
 from flask import Flask, render_template, request, make_response
 
