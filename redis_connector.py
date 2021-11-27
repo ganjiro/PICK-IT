@@ -44,7 +44,6 @@ class Singleton:
 class Connection:
     def __init__(self):
         self._r = None
-        self.set_url("redis://:p975d2dba3a5c75f5d5fc51a412f07722e4be526860ae94609067b37cd08adb7d@ec2-54-208-105-45.compute-1.amazonaws.com:25149")
 
     def set_url(self, url):
         self._r = redis.from_url(url)

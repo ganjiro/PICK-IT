@@ -1,7 +1,9 @@
 import ast
 import datetime
 import json
+import os
 import time
+from urllib.parse import urlparse
 
 from flask import Flask, render_template, request, make_response
 
@@ -12,7 +14,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def index():
-    url = "redis://:p975d2dba3a5c75f5d5fc51a412f07722e4be526860ae94609067b37cd08adb7d@ec2-54-208-105-45.compute-1.amazonaws.com:25149"
+    url = urlparse(os.environ.get("REDIS_URL"))
     Connection.instance().set_url(url)
 
     return render_template('index.html')
@@ -133,6 +135,12 @@ def check_gamestatus():
     resp['gamephase'] = phase
 
     return json.dumps(resp), 200, {'ContentType': 'application/json'}
+
+
+@app.route('/get_redis_connection', methods=["GET"])
+def get_redis_connection():
+    url = urlparse(os.environ.get("REDIS_URL"))
+    return {"URL": url}, 200, {'ContentType': 'application/json'}
 
 
 if __name__ == '__main__':
