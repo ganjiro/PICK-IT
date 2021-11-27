@@ -141,7 +141,8 @@ def check_gamestatus():
 
 @app.route('/get_redis_connection', methods=["GET"])
 def get_redis_connection():
-    url = urlparse(os.environ.get("REDIS_URL"))
+    url = os.environ.get("REDIS_URL")
+
     return {"URL": url}, 200, {'ContentType': 'application/json'}
 
 
