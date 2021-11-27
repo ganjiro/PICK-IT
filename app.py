@@ -16,8 +16,10 @@ app = Flask(__name__)
 def index():
     url = urlparse(os.environ.get("REDIS_URL"))
     Connection.instance().set_url(url)
-
-    return render_template('index.html')
+    if url != '':
+        return render_template('index.html')
+    else:
+       return render_template('champselection.html')
 
 
 @app.route('/code', methods=["POST"])
