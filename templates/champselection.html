@@ -275,7 +275,7 @@
                         $("#progress-bar-div").hide();
                     } else {
                         $("#progress-bar-div").show();
-                        document.getElementById("progress-bar").setAttribute("style", "width: ".concat(response["timeBar"]).concat("%"))
+                        document.getElementById("progress-bar").setAttribute("style", "width: ".concat(response["timeBar"]).concat("%"));
                         document.getElementById("progress-bar").setAttribute("aria-valuenow", response["timeBar"]);
 
                         if (response["timeBar"] < 30) {
