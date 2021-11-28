@@ -319,8 +319,12 @@
                                             document.getElementById("champ" + i).src = "https://ddragon.leagueoflegends.com/cdn/" + patch + "/img/champion/" + img;
                                         }
                                     }
+                                    if (response[i]['me']) {
+                                        document.getElementById("champ" + i).style.backgroundColor = "#f46bff";
+                                    }
                                 }
                                 break;
+
 
                             case  'yourTurnToBan':
                                 document.getElementById("id-label-phase").innerHTML = "Ban a Champion!";
