@@ -29,7 +29,7 @@ This is a video tutorial for the installation and the syncronization between the
 
 <!-- commento ![alt text](https://github.com/ganjiro/lol_picker_web_app/screenshots/full_page.png?raw=true)
  -->
-[alt text]((https://github.com/ganjiro/lol_picker_web_app/screenshots/full_page.png?raw=true) 
+[alt text](https://github.com/ganjiro/lol_picker_web_app/screenshots/full_page.png?raw=true) 
 
 
 
