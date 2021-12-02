@@ -27,6 +27,18 @@ This is a video tutorial for the installation and the syncronization between the
 
 ## Some Screeshots
 
+![alt text](https://github.com/ganjiro/lol_picker_web_app/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/ganjiro/lol_picker_web_app/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/ganjiro/lol_picker_web_app/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/ganjiro/lol_picker_web_app/blob/[branch]/image.jpg?raw=true)
+
+
+
+
+
+
+
+
 
 [Riot API]: <https://developer.riotgames.com/>
 [PICK-IT!]: <https://lol-pick-it.herokuapp.com/>
