@@ -27,7 +27,7 @@ This is a video tutorial for the installation and the syncronization between the
 
 ## Some Screeshots
 
-<!-- ![alt text](https://github.com/ganjiro/lol_picker_web_app/screenshots/full_page.png?raw=true)
+<!-- commento ![alt text](https://github.com/ganjiro/lol_picker_web_app/screenshots/full_page.png?raw=true)
  -->
 [alt text](screenshots/full_page.png?raw=true) 
 
