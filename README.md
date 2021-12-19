@@ -10,8 +10,8 @@ This project has been done in collaboration with [Marco Mistretta]
 
 ## Project Idea
 There are two application: 
-- PC App that exchange information with the Riot Client through the [Riot API], such as the champion to pick or the lobby phase, and send the information to the Web App. The GUI is made with [PyQt]
-- Web App that displays the lobby status, allow the user to see the team composition, to pick and to ban; this is a progressive web app so it can be installed in a smarphone. Is made using [Boostrap] and [jQuery] as frontend libraries and [Flask] for the Backend.
+- a PC App that exchange information with the Riot Client through the [Riot API], such as the champion to pick or the lobby phase, and send the information to the Web App. The GUI is made with [PyQt]
+- a Web App that displays the lobby status, allow the user to see the team composition, to pick and to ban; this is a progressive web app so it can be installed in a smarphone. Is made using [Boostrap] and [jQuery] as frontend libraries and [Flask] for the Backend.
 
 The sincronization is made by a code provided by the pc app that must be typed in the web app.
 The comunication between the apps is managed by redis caching in order to be without slowdowns.
@@ -21,9 +21,17 @@ All the project is developed to work with possible new League of Legends updates
 The project is fully functional, you can test it at this link [PICK-IT!]; is hosted by [Heroku] that offers a free PaaS and a small redis cluster. 
 
 ## Installation and Syncronization Tutorial
-This is a video tutorial for the installation and the syncronization between the apps:
+- First of all, go through your pc to:
+- Install the PC app on your PC.
+- Go to the same website from your smartphone
+- Install the Web App on your smartphone.
+- Launch the PC App to generate your personal synchronization code
+ -Launch the App on your smartphone and type your synchronization code
+- Launch a Draft and enjoy picking your favorite champion from anywhere you want!
 
+This is a video tutorial for the installation and the syncronization between the apps:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Kg2rtYsNS5E/0.jpg)](https://www.youtube.com/watch?v=Kg2rtYsNS5E)
+
 
 ## Some Screeshots
 
@@ -35,7 +43,8 @@ This is a video tutorial for the installation and the syncronization between the
 
 
 
-
+# Last release
+- fix a synchronization bug  
 
 [Riot API]: <https://developer.riotgames.com/>
 [PICK-IT!]: <https://lol-pick-it.herokuapp.com/>
