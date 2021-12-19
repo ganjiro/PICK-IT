@@ -21,7 +21,7 @@ All the project is developed to work with possible new League of Legends updates
 The project is fully functional, you can test it at this link [PICK-IT!]; is hosted by [Heroku] that offers a free PaaS and a small redis cluster. 
 
 ## Installation and Syncronization Tutorial
-- Go through your pc to:
+- Go through your pc to: [PICK-IT!]
 - Install the PC app on your PC.
 - Go to the same website from your smartphone
 - Install the Web App on your smartphone.
