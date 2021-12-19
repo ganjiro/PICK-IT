@@ -43,7 +43,7 @@ This is a video tutorial for the installation and the syncronization between the
 
 
 
-# Last release
+### Last release
 - fix a synchronization bug  
 
 [Riot API]: <https://developer.riotgames.com/>
