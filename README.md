@@ -1,4 +1,4 @@
-# [PICK-IT!] [IMAGE ALT TEXT HERE](https://github.com/ganjiro/lol_picker_web_app/blob/master/logo.png?raw=true)
+# [PICK-IT!] ![IMAGE ALT TEXT HERE](https://github.com/ganjiro/lol_picker_web_app/blob/master/logo.png?raw=true)
 
 A web app to manage the champion selction of League of Legends with your smarphone! This is project for the course of Human Computer Interaction (University Of Florence - A. D. Bagdanov)
 This is the repository for the web app, [here] you can find the PC app repo
